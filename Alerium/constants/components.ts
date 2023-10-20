@@ -33,6 +33,7 @@ import Badge, {BadgeProps} from '@/components/custom/cards/Badge';
 // form
 import FormItem, {FormItemProps} from '@/components/custom/form/FormItem'
 import FormCalendar, {FormCalendarProps} from '@/components/custom/form/FormCalendar'
+import SignUpForm from '@/components/custom/form/SignUpForm'
 export {
   Provider,
   ThemeProvider,
@@ -50,7 +51,8 @@ export {
   StaticLink,
   Badge,
   FormItem,
-  FormCalendar
+  FormCalendar,
+  SignUpForm
 };
 export type {
   StackProps,

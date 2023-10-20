@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CalendarView, EventStack, NavigationMenu } from "@/constants/components";
+import {NavigationMenu } from "@/constants/components";
 
 export default function Home() {
   return (
@@ -15,7 +15,6 @@ export default function Home() {
           },
         ]}
       />
-      <CalendarView />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 // React Peer Dependencies
 import {ReactNode} from 'react';
 // Shad CN Components

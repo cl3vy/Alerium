@@ -7,7 +7,7 @@ import {useForm} from "react-hook-form";
 import {Button} from "@/components/ui/button"
 import {Form} from "@/components/ui/form"
 // Custom Components
-import {FormItem} from '@constants/components'
+import {FormItem, FormCalendar} from '@constants/components'
 // Schemas
 import {userSchema as schema} from '@constants/utils'
 
@@ -31,7 +31,7 @@ function SignUpForm() {
                 <FormItem form={form} name={'surname'}>Your Surname</FormItem>
                 <FormItem form={form} name={'email'}>Your Email</FormItem>
                 <FormItem form={form} name={'phoneNumber'}>Your Phone Number</FormItem>
-                <FormCalendar></FormCalendar>
+                <FormCalendar form={form} name={'birthday'}>Your Birthday</FormCalendar>
                 <Button type="submit">Submit</Button>
             </form>
         </Form>);
