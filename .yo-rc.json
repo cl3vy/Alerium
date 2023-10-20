@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "Alerium",
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "creationTimestamp": 1697838969806,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "enableGradleEnterprise": null,
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": false,
+    "entities": [],
+    "gradleEnterpriseHost": null,
+    "jhipsterVersion": "8.0.0-rc.1",
+    "jwtSecretKey": "ZmRjOTFlMDBiNDVjYWUyOWUyZjlmNmRmZDdmNTg2MWI0NWNlYTA0OGZiNTU1NGEzOGNlOGIwYWQyYWI5MDU4NzNiZGU3MGVlZjQ1MWVjM2MyMDRjNWUwZTllYmZjYzhmYmUzYmFiZWI2YTJmZWE0YWZiNGQ2ZTIyNDQ5NmI3ZGQ=",
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "com",
+    "prodDatabaseType": "mysql",
+    "reactive": false,
+    "searchEngine": false,
+    "serverPort": null,
+    "serverSideOptions": [],
+    "serviceDiscoveryType": false,
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false
+  }
+}
