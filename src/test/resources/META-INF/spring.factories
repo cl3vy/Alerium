@@ -1,2 +1,2 @@
-org.springframework.test.context.ContextCustomizerFactory = com.config.\
+org.springframework.test.context.ContextCustomizerFactory = com.alerium.config.\
     SqlTestContainersSpringContextCustomizerFactory

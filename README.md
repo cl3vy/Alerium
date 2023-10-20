@@ -141,9 +141,17 @@ docker compose -f src/main/docker/app.yml up -d
 
 When running Docker Desktop on MacOS Big Sur or later, consider enabling experimental `Use the new Virtualization framework` for better processing performance ([disk access performance is worse](https://github.com/docker/roadmap/issues/7)).
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
 ## Continuous Integration (optional)
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
+[JHipster Homepage and latest documentation]: https://www.jhipster.tech
+[JHipster 8.0.0-rc.1 archive]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1
+[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/development/
+[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/docker-compose
+[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/production/
+[Running tests page]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/running-tests/
+[Code quality page]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/code-quality/
+[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.0.0-rc.1/setting-up-ci/
+[Node.js]: https://nodejs.org/
+[NPM]: https://www.npmjs.com/
