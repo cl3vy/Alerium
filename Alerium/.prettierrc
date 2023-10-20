@@ -1,0 +1,28 @@
+{
+  "jsxBracketSameLine": false,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "jsxSingleQuote": false,
+  "quoteProps": "consistent",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "overrides": [
+    {
+      "files": "*.tsx",
+      "options": {
+        "parser": "typescript",
+        "printWidth": 80,
+        "tabWidth": 2,
+        "jsxBracketSameLine": false
+      }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
+}
