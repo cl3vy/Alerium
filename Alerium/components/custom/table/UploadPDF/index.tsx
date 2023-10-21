@@ -11,6 +11,7 @@ type UploadPDFProps = {
 }
 // Styles
 import styles from './style';
+import { Button } from "@/components/ui/button";
 function UploadPDF({onSelection}:UploadPDFProps) {
   const [file, setFile] = useState<File | undefined>();
   const onDrop = useCallback((e: DragEvent<HTMLDivElement>) => {
@@ -28,7 +29,9 @@ function UploadPDF({onSelection}:UploadPDFProps) {
     <Stack onDrop={onDrop} onDragOver={onDragOver}>
       <Stack className={styles.innerContainer}>
         <Label htmlFor="picture">PDF</Label>
-        <Input id="PDF" type="file" onChange={(e) => { setFile(e.target.files?.[0]);  onSelection(e.target.files?.[0])}}/>
+        <Input id="PDF" type="file" onChange={(e) => { setFile(e.target.files?.[0])}}/>
+        <Button onClick={() => onSelection(file)}>Upload PDF</Button>
+          
       </Stack>
     </Stack>
   );

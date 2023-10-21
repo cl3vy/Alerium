@@ -82,6 +82,7 @@ export const columns: ColumnDef<IUserRow>[] = [
     cell: ({ row }) => {
       const [pdfDoc, setPdfDoc] = useState<File | null>();
       const onSelection = (pdf: File | undefined) => setPdfDoc(pdf);
+
       useFetch({
         url: endpoints.url + "/api/user-alerium/upload-contracts",
         type: "POST",
