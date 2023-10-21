@@ -1,5 +1,6 @@
 // Custom Components
 import { columns, DataTable, IUserRow, Modal, Stack, SvgView, UploadPDF } from "@constants/components";
+// Utils
 import { getUsers } from "@constants/utils";
 
 export default async function Residents() {

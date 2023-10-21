@@ -17,7 +17,7 @@ import Building3 from "@/components/custom/buildings/SingularSVG/Building3";
 function SvgView({}: SvgViewProps) {
   const clickHandler = () => console.log('hi')
   return (
-    <Stack className={'relative w-full h-[500px] overflow-hidden'}>
+    <Stack className={'relative w-full h-[500px]'}>
         <Building3 onClick={clickHandler} className={''}/>
     </Stack>
   );
