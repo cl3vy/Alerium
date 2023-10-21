@@ -1,0 +1,95 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="cl3vy (generated)" id="1697854311635-2">
+        <createTable tableName="building">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="buildingPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-3">
+        <createTable tableName="floor">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="floorPK"/>
+            </column>
+            <column name="floor_nr" type="BIGINT"/>
+            <column name="building_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-4">
+        <createTable tableName="image">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="imagePK"/>
+            </column>
+            <column name="image_blob" type="BLOB"/>
+            <column name="room_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-5">
+        <createTable tableName="request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="requestPK"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="message" type="VARCHAR(255)"/>
+            <column name="offer" type="BIGINT"/>
+            <column name="start_date" type="date"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-6">
+        <createTable tableName="room">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="roomPK"/>
+            </column>
+            <column name="booked" type="BIT"/>
+            <column name="end_date" type="date"/>
+            <column name="room_number" type="BIGINT"/>
+            <column name="start_date" type="date"/>
+            <column name="floor_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-7">
+        <createTable tableName="user_alerium">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_aleriumPK"/>
+            </column>
+            <column name="birthday" type="date"/>
+            <column name="contract_blob" type="BLOB"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="gender" type="VARCHAR(255)"/>
+            <column name="hash_password" type="VARCHAR(255)"/>
+            <column name="is_active" type="BIT"/>
+            <column name="is_deleted" type="BIT"/>
+            <column name="is_resident" type="BIT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="state_id" type="VARCHAR(255)"/>
+            <column name="surname" type="VARCHAR(255)"/>
+            <column name="room_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-8">
+        <addUniqueConstraint columnNames="room_id" constraintName="UC_USER_ALERIUMROOM_ID_COL" tableName="user_alerium"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-9">
+        <addForeignKeyConstraint baseColumnNames="room_id" baseTableName="user_alerium" constraintName="FKd7ttn9mcy06b6ptiwsye2q9o3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="room" validate="true"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-10">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="floor" constraintName="FKfvb11l7lpgqc6qdrg3bm24kr3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building" validate="true"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-11">
+        <addForeignKeyConstraint baseColumnNames="room_id" baseTableName="image" constraintName="FKgfoef2g9bwlndgk8ttmf902dg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="room" validate="true"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-12">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="request" constraintName="FKj7u1lpdu7uwqtgmnrjhfnp9gm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user_alerium" validate="true"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-13">
+        <addForeignKeyConstraint baseColumnNames="floor_id" baseTableName="room" constraintName="FKstlo96g0nkwp4urd4e0ki5b3h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="floor" validate="true"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697854311635-1">
+        <modifyDataType columnName="email" newDataType="varchar(254)" tableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>
