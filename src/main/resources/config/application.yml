@@ -19,8 +19,8 @@
 spring:
   servlet:
     multipart:
-      enabled: true
-      max-file-size: 20MB
+      file-size-threshold: 2KB
+      max-file-size: 50MB
       max-request-size: 50MB
   cors:
     allowed-origins: '*'
