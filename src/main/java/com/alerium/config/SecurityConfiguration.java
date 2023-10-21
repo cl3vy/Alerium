@@ -36,36 +36,50 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+        //        http
+//            .cors(withDefaults())
+//            .csrf(csrf -> csrf.disable())
+//            .authorizeHttpRequests(authz ->
+//                // prettier-ignore
+//                authz
+//                        .requestMatchers(mvc.pattern("/api/user-alerium")).permitAll()
+//                    .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/authenticate")).permitAll()
+//                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/authenticate")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/register")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/activate")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/account/reset-password/init")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/account/reset-password/finish")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/admin/**")).hasAuthority(AuthoritiesConstants.ADMIN)
+//                    .requestMatchers(mvc.pattern("/api/**")).authenticated()
+//                    .requestMatchers(mvc.pattern("/v3/api-docs/**")).hasAuthority(AuthoritiesConstants.ADMIN)
+//                    .requestMatchers(mvc.pattern("/management/health")).permitAll()
+//                    .requestMatchers(mvc.pattern("/management/health/**")).permitAll()
+//                    .requestMatchers(mvc.pattern("/management/info")).permitAll()
+//                    .requestMatchers(mvc.pattern("/management/prometheus")).permitAll()
+//                    .requestMatchers(mvc.pattern("/management/**")).hasAuthority(AuthoritiesConstants.ADMIN)
+//            )
+//            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//            .exceptionHandling(exceptions ->
+//                exceptions
+//                    .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+//                    .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
+//            )
+//            .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
+//        return http.build();
+
+
         http
             .cors(withDefaults())
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz ->
-                // prettier-ignore
                 authz
-                        .requestMatchers(mvc.pattern("/api/user-alerium")).permitAll()
-                    .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/authenticate")).permitAll()
-                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/authenticate")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/register")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/activate")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/account/reset-password/init")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/account/reset-password/finish")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/admin/**")).hasAuthority(AuthoritiesConstants.ADMIN)
-                    .requestMatchers(mvc.pattern("/api/**")).authenticated()
-                    .requestMatchers(mvc.pattern("/v3/api-docs/**")).hasAuthority(AuthoritiesConstants.ADMIN)
-                    .requestMatchers(mvc.pattern("/management/health")).permitAll()
-                    .requestMatchers(mvc.pattern("/management/health/**")).permitAll()
-                    .requestMatchers(mvc.pattern("/management/info")).permitAll()
-                    .requestMatchers(mvc.pattern("/management/prometheus")).permitAll()
-                    .requestMatchers(mvc.pattern("/management/**")).hasAuthority(AuthoritiesConstants.ADMIN)
-            )
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .exceptionHandling(exceptions ->
-                exceptions
-                    .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-                    .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
-            )
-            .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
+                    .anyRequest().permitAll()
+            );
+
+        // You can add additional security configurations if needed
+
         return http.build();
+        // You can add additional security configurations if needed
     }
 
     @Bean
