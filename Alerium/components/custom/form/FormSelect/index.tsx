@@ -28,8 +28,8 @@ function FormSelect({ name, children, className, form, formDescription }: FormSe
         <FormControl>
           <Stack direction={"row"}>
             <Select
+              selectorPlaceholder={'Expand'}
               onValueChange={(value) => field.onChange(value)}
-              defaultValue={"male"}
               items={[{
                 value: "male", description: "Male",
               }, {

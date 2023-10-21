@@ -18,25 +18,25 @@ async function LogIn(props: LogInProps) {
           separator={<Separator />}
         >
           <Typography className={styles.mainTitle}>
-            This is the start of something amazing!
+            Welcome back Home!
           </Typography>
           <Typography className={styles.subtitle}>
-            Decent, comfortable, safe accommodation with high standard services
-            and facilities and a lively and attractive environment.
+            Respect for others fosters a greater opportunity for understanding.
+            We are committed to treating you with dignity, regardless of
+            opinions, experiences, backgrounds or perspectives.
           </Typography>
           <LogInForm className={styles.form} />
           <Typography>
-           Haven't joined yet? <Button variant={"link"}>Create account!</Button>
+            Haven't joined yet?{" "}
+            <Button variant={"link"}>Create account!</Button>
           </Typography>
         </Stack>
         <Stack className={styles.imageContainer}>
           <Stack className={styles.textContainer}>
-            <Typography className={styles.title}>Live Cozy!</Typography>
+            <Typography className={styles.title}>Home awaits!</Typography>
             <Typography className={styles.imageSubtitle}>
-              In the Folè residence you will find decent, comfortable, safe
-              accommodation with high standard services and facilities as well
-              as a lively and attractive environment for young people, safe and
-              inclusive to live and study.
+              At Folé you will find hospitality, warmth and all the necessary
+              services and facilities that will make you feel at home.
             </Typography>
           </Stack>
           <Stack

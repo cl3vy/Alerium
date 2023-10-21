@@ -17,6 +17,8 @@ import styles from "./style";
 import { endpoints } from "@constants/defaults";
 import { useState } from "react";
 // Types And Interfaces
+import { IRoom, IUser } from "@constants/interfaces";
+
 type LogInFormProps = {
   className?: string;
 };
@@ -25,12 +27,12 @@ function LogInForm({ className }: LogInFormProps) {
   const [userLogin, setUserLogin] = useState<
     z.infer<typeof schema> | undefined
   >();
-  useFetch({
-    url: endpoints.url + "/api/user-alerium",
+  useFetch<{ user: Partial<IUser>; room: Partial<IRoom> }>({
+    url: endpoints.url + "/api/user-alerium/authenticate",
     type: "POST",
     body: userLogin,
     preventFetch: !userLogin,
-    onSuccess: () => console.log("success"),
+    onSuccess: (res) => console.log(res),
   });
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -52,12 +54,15 @@ function LogInForm({ className }: LogInFormProps) {
           className={styles.mainContainer}
           method={"POST"}
         >
-          <FormItem<typeof schema> form={form} name={"email"} className={styles.field}>
+          <FormItem<typeof schema>
+            form={form}
+            name={"email"}
+            className={styles.field}
+          >
             Your Email
           </FormItem>
 
-          <FormItem
-            <typeof schema>
+          <FormItem<typeof schema>
             form={form}
             name={"hashPassword"}
             className={styles.field}
