@@ -98,7 +98,7 @@ public class UserAleriumResource {
     }
 
     @PostMapping("/upload-contract")
-    public void uploadFile(@RequestPart("file") MultipartFile file, @RequestPart("userId") Long userId) throws IOException {
+    public void uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("userId") Long userId) throws IOException {
         var user = userAleriumRepository.findById(userId);
 
         if (user.isPresent()) {

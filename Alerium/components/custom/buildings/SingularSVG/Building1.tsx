@@ -1,3 +1,4 @@
+"use client"
 // React Peer Dependencies
 import React from "react";
 // Types And Interfaces
