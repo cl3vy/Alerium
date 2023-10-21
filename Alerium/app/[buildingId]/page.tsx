@@ -8,10 +8,11 @@ export default async function Page({
   params: { buildingId: string };
 }) {
   const { props: floors } = await getFloors(params.buildingId);
+  const colors = ['bg-blue-50', 'bg-blue-100', 'bg-blue-200', 'bg-blue-300', 'bg-blue-400', 'bg-blue-500', 'bg-blue-600', 'bg-blue-700', 'bg-blue-800', 'bg-blue-900']
   return (
     <div className={"map"}>
       {floors?.map(({ floorNumber, id }, i) => (
-        <div className={`floor f${i}`} style={{zIndex: i * 10}} key={id}>
+        <div className={`floor ${colors[i]}`} style={{zIndex: i * 10}} key={id}>
           <span className="label">floorNumber</span>
           <div className="plan"></div>
         </div>
