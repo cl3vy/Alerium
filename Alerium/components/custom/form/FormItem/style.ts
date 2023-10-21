@@ -1,5 +1,5 @@
 const styles = {
   errorLabel: 'text-xs',
-  label: 'text-lg'
+  label: 'text-lg font-sans'
 }
 export default styles;

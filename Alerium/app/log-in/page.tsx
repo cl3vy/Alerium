@@ -1,18 +1,14 @@
-// Next Components
-import Image from "next/image";
 // Shad CN Components
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 // Custom Components
-import { Badge, SignUpForm, Stack, Typography } from "@constants/components";
+import { Badge, LogInForm, Stack, Typography } from "@constants/components";
 // Styles
 import styles from "./style";
-// Images
-import background from "@/public/assets/images/sign-up-background-image.png";
 // Types And Interfaces
-type SignInProps = {};
+type LogInProps = {};
 
-async function SignIn(props: SignInProps) {
+async function LogIn(props: LogInProps) {
   return (
     <Stack component={"main"} className={styles.body}>
       <Stack direction={"row"} className={styles.page}>
@@ -28,9 +24,9 @@ async function SignIn(props: SignInProps) {
             Decent, comfortable, safe accommodation with high standard services
             and facilities and a lively and attractive environment.
           </Typography>
-          <SignUpForm className={styles.form} />
+          <LogInForm className={styles.form} />
           <Typography>
-            Have an account instead? <Button variant={"link"}>Log In!</Button>
+           Haven't joined yet? <Button variant={"link"}>Create account!</Button>
           </Typography>
         </Stack>
         <Stack className={styles.imageContainer}>
@@ -54,10 +50,10 @@ async function SignIn(props: SignInProps) {
             <Badge>Affordable_Living</Badge>
           </Stack>
         </Stack>
-      </Stack>
+      </Stack>{" "}
     </Stack>
   );
 }
 
-export default SignIn;
-export type { SignInProps };
+export default LogIn;
+export type { LogInProps };

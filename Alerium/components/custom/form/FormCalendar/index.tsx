@@ -12,11 +12,12 @@ import {
 } from "@/components/ui/form";
 // Custom Components
 import { CalendarInput, FormItemProps, Stack } from "@constants/components";
-import styles from "../FormItem/style";
 // Schemas
-
+import { userSchema } from "@/constants/utils";
+// Styles
+import styles from "../FormItem/style";
 // Types And Interfaces
-interface FormCalendarProps extends FormItemProps {
+interface FormCalendarProps extends FormItemProps<typeof userSchema> {
   name: "birthday";
 }
 

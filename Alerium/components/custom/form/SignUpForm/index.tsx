@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 // Custom Components
-import { FormCalendar, FormItem, FormSelect, Stack } from "@constants/components";
+import { FormCalendar, FormItem, FormSelect, Stack, Typography } from "@constants/components";
 // Custom Hooks
 import { useFetch } from "@constants/hooks";
 // Schemas
@@ -16,6 +16,7 @@ import { userSchema as schema } from "@constants/utils";
 import styles from "./style";
 import { endpoints } from "@constants/defaults";
 import { useState } from "react";
+import { Send } from "lucide-react";
 // Types And Interfaces
 type SignUpFormProps = {
   className?: string;
@@ -98,7 +99,7 @@ function SignUpForm({ className }: SignUpFormProps) {
             Select Your Gender
           </FormSelect>
           <Button className={styles.button} type="submit">
-            Submit
+          Submit
           </Button>
         </form>
       </Form>

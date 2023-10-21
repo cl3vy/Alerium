@@ -39,6 +39,7 @@ import FormCalendar, {
   FormCalendarProps,
 } from "@/components/custom/form/FormCalendar";
 import SignUpForm from "@/components/custom/form/SignUpForm";
+import LogInForm from "@/components/custom/form/LogInForm";
 import FormSelect, {FormSelectProps} from "@/components/custom/form/FormSelect";
 export {
   Provider,
@@ -60,6 +61,7 @@ export {
   FormItem,
   FormCalendar,
   SignUpForm,
+  LogInForm,
   FormSelect
 };
 export type {
