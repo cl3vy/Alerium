@@ -112,7 +112,7 @@ function useFetch<T>({
     return () => {
       source.cancel();
     };
-  }, [queryParams, body]);
+  }, [queryParams, body, preventFetch]);
 
   return { data, error, loading };
 }

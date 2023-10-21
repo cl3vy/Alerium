@@ -1,5 +1,5 @@
 // Custom Components
-import { columns, DataTable, IUserRow, Modal, Stack, UploadPDF } from "@constants/components";
+import { columns, DataTable, IUserRow, Modal, Stack, SvgView, UploadPDF } from "@constants/components";
 
 const data: IUserRow[] = [
   {
@@ -16,7 +16,7 @@ export default async function Residents() {
   return (
     <Stack component={"main"} className={'p-1'}>
       <DataTable columns={columns} data={data} />
-
+      <SvgView />
     </Stack>
 
   );

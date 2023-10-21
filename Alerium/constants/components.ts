@@ -36,6 +36,8 @@ import {columns, IUserRow} from '@/components/custom/table/ColumnDef/ColumnDef';
 import TableCell, {TableCellProps} from '@/components/custom/table/TableCell';
 import RowActions, {RowActionsProps} from '@/components/custom/table/RowActions'
 import UploadPDF from "@/components/custom/table/UploadPDF";
+// Building
+import SvgView, {SvgViewProps} from "@/components/custom/buildings/SvgView";
 export {
   Provider,
   ThemeProvider,
@@ -63,7 +65,8 @@ export {
   columns,
   TableCell,
   RowActions,
-  UploadPDF
+  UploadPDF,
+  SvgView
 };
 export type {
   StackProps,
@@ -88,5 +91,6 @@ export type {
   FormSelectProps,
   IUserRow,
   TableCellProps,
-  RowActionsProps
+  RowActionsProps,
+  SvgViewProps
 };
