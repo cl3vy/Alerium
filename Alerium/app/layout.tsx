@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={"h-[100dvh]"}>
+    <html lang="en" className={"h-[100dvh] text-[14px]"}>
       <body className={`${inter.className} h-full`}>
         <ThemeProvider
           attribute="class"
