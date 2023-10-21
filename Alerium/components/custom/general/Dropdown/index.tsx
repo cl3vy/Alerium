@@ -64,9 +64,9 @@ function Dropdown({ children, groups, label }: DropdownProps) {
     <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
     <DropdownMenuContent>
       {label && <DropdownMenuLabel>{label}</DropdownMenuLabel>}
-      {groups.map(({ items, label }) => <DropdownMenuGroup>
+      {groups.map(({ items, label }, i) => <DropdownMenuGroup key={i}>
         {label && <DropdownMenuLabel>{label}</DropdownMenuLabel>}
-        {items.map(( item) => <DropdownItem {...item}/>)}
+        {items.map(( item, i) => <DropdownItem {...item} key={i}/>)}
       </DropdownMenuGroup>)}
     </DropdownMenuContent>
   </DropdownMenu>);

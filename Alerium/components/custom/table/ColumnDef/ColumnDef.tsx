@@ -15,16 +15,26 @@ import styles from "./style";
 import { ArrowUpDown } from "lucide-react";
 // Others
 import { endpoints } from "@constants/defaults";
+import { IRoom } from "@/interfaces/IRoom";
 
 // Types And Interfaces
 export type IUserRow = {
   hasContract: boolean;
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   phoneNumber: string;
-  roomNumber: number;
-  userId: number
+  userId: number;
+  gender: string;
+  birthday: Date;
+  stateId: string;
+  room: IRoom;
+  paymentMethod: 'Bank' | 'Cash';
+  guarantee: number;
+  firstPaymentAmount: number;
+
+
+
 };
 
 export const columns: ColumnDef<IUserRow>[] = [
@@ -46,14 +56,14 @@ export const columns: ColumnDef<IUserRow>[] = [
     ),
   },
   {
-    accessorKey: "firstName",
+    accessorKey: "name",
     header: () => <div className="text-left font-medium">First Name</div>,
-    cell: ({ row }) => <TableCell content={row.getValue("firstName")} />,
+    cell: ({ row }) => <TableCell content={row.getValue("name")} />,
   },
   {
-    accessorKey: "lastName",
+    accessorKey: "surname",
     header: () => <div className="text-left font-medium">Last Name</div>,
-    cell: ({ row }) => <TableCell content={row.getValue("lastName")} />,
+    cell: ({ row }) => <TableCell content={row.getValue("surname")} />,
   },
   {
     accessorKey: "email",
@@ -65,21 +75,21 @@ export const columns: ColumnDef<IUserRow>[] = [
     header: () => <div className="text-left font-medium">Phone Number</div>,
     cell: ({ row }) => <TableCell content={row.getValue("phoneNumber")} />,
   },
-  {
-    accessorKey: "roomNumber",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <TableCell content={row.getValue("roomNumber")} />,
-  },
+  // {
+  //   accessorKey: "roomNumber",
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         Email
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => <TableCell content={row.getValue("room")} />,
+  // },
   {
     accessorKey: "Actions",
     header: () => <div className="text-left font-medium">Actions</div>,

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { SVGProps } from "@/components/custom/buildings/SvgView";
 
-const Building2 = ({ onClick }: SVGProps) => {
+const Building2 = ({ onClick, className }: SVGProps) => {
   // Define your path data
   const pathData = [
     "M4.33 108.452h247.395v622.396H4.33V108.452Z",
@@ -21,6 +21,7 @@ const Building2 = ({ onClick }: SVGProps) => {
 
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       strokeMiterlimit={10}
       style={{

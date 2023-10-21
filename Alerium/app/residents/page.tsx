@@ -1,21 +1,12 @@
 // Custom Components
 import { columns, DataTable, IUserRow, Modal, Stack, SvgView, UploadPDF } from "@constants/components";
+import { getUsers } from "@constants/utils";
 
-const data: IUserRow[] = [
-  {
-    hasContract: false,
-    firstName: "Xhuri",
-    lastName: "Shaba",
-    email: "xhurian.shaba@outlook.com",
-    phoneNumber: "0684594667",
-    roomNumber: 12,
-    userId: 1,
-  },
-];
 export default async function Residents() {
+  const {props} = await getUsers();
   return (
     <Stack component={"main"} className={'p-1'}>
-      <DataTable columns={columns} data={data} />
+      <DataTable columns={columns} data={props} />
       <SvgView />
     </Stack>
 

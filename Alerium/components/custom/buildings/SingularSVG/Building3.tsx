@@ -4,10 +4,10 @@ import React from 'react';
 // Types And Interfaces
 import { SVGProps } from "@/components/custom/buildings/SvgView";
 
-const SvgWithClickablePaths = ({ onClick: clickHandler }: SVGProps) => {
+const Building3 = ({ onClick: clickHandler, className }: SVGProps) => {
   return (
     <svg
-      height="100%"
+      className={className}
       strokeMiterlimit="10"
       style={{
         fillRule: "nonzero",
@@ -15,14 +15,80 @@ const SvgWithClickablePaths = ({ onClick: clickHandler }: SVGProps) => {
         strokeLinecap: "round",
         strokeLinejoin: "round",
       }}
+      width={'100%'}
+      height={'100%'}
       version="1.1"
       viewBox="0 0 1000 1000"
-      width="100%"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <defs />
-      <g id="Layer-1-copy" visibility="hidden">
+      <g id="Layer-1">
+        <g id="Layer-1-copy-copy" >
+          <a onClick={clickHandler}>
+            <path
+              d="M360.261 33.351L856.228 33.351L856.228 250.945L360.261 250.945L360.261 33.351Z"
+              fill="#ffffff"
+              fillOpacity="0"
+              fillRule="nonzero"
+              opacity="1"
+              stroke="#000000"
+              strokeLinecap="butt"
+              strokeLinejoin="round"
+              strokeWidth="2.46567"
+            />
+          </a>
+          <a onClick={clickHandler}>
+            <path
+              d="M630.223 251.076L664.654 221.795"
+              fill="#ffffff"
+              fillOpacity="0"
+              fillRule="nonzero"
+              opacity="1"
+              stroke="#000000"
+              strokeLinecap="butt"
+              strokeLinejoin="round"
+              strokeWidth="2.46567"
+            />
+          </a>
+          <a onClick={clickHandler}>
+            <path
+              d="M360.322 250.623L395.887 220.683"
+              fill="#ffffff"
+              fillOpacity="0"
+              fillRule="nonzero"
+              opacity="1"
+              stroke="#000000"
+              strokeLinecap="butt"
+              strokeLinejoin="round"
+              strokeWidth="2.46567"
+            />
+          </a>
+          <a onClick={clickHandler}>
+            <path
+              d="M630.045 250.945L856.228 250.945L856.228 656.548L630.045 656.548L630.045 250.945Z"
+              fill="#ffffff"
+              fillOpacity="0"
+              fillRule="nonzero"
+              opacity="1"
+              stroke="#000000"
+              strokeLinecap="butt"
+              strokeLinejoin="round"
+              strokeWidth="2.46567"
+            />
+          </a>
+          <a onClick={clickHandler}>
+            <path
+              d="M665.495 626.22L630.338 656.367"
+              fill="none"
+              opacity="1"
+              stroke="#000000"
+              strokeLinecap="butt"
+              strokeLinejoin="round"
+              strokeWidth="2.46567"
+            />
+          </a>
+        </g>
         <a onClick={clickHandler}>
           <path
             d="M395.529 3.4283L891.497 3.4283L891.497 221.022L395.529 221.022L395.529 3.4283Z"
@@ -98,72 +164,7 @@ const SvgWithClickablePaths = ({ onClick: clickHandler }: SVGProps) => {
           />
         </a>
       </g>
-      <g id="Layer-1-copy-copy" visibility="hidden">
-        <a onClick={clickHandler}>
-          <path
-            d="M360.261 33.351L856.228 33.351L856.228 250.945L360.261 250.945L360.261 33.351Z"
-            fill="#ffffff"
-            fillOpacity="0"
-            fillRule="nonzero"
-            opacity="1"
-            stroke="#000000"
-            strokeLinecap="butt"
-            strokeLinejoin="round"
-            strokeWidth="2.46567"
-          />
-        </a>
-        <a onClick={clickHandler}>
-          <path
-            d="M630.223 251.076L664.654 221.795"
-            fill="#ffffff"
-            fillOpacity="0"
-            fillRule="nonzero"
-            opacity="1"
-            stroke="#000000"
-            strokeLinecap="butt"
-            strokeLinejoin="round"
-            strokeWidth="2.46567"
-          />
-        </a>
-        <a onClick={clickHandler}>
-          <path
-            d="M360.322 250.623L395.887 220.683"
-            fill="#ffffff"
-            fillOpacity="0"
-            fillRule="nonzero"
-            opacity="1"
-            stroke="#000000"
-            strokeLinecap="butt"
-            strokeLinejoin="round"
-            strokeWidth="2.46567"
-          />
-        </a>
-        <a onClick={clickHandler}>
-          <path
-            d="M630.045 250.945L856.228 250.945L856.228 656.548L630.045 656.548L630.045 250.945Z"
-            fill="#ffffff"
-            fillOpacity="0"
-            fillRule="nonzero"
-            opacity="1"
-            stroke="#000000"
-            strokeLinecap="butt"
-            strokeLinejoin="round"
-            strokeWidth="2.46567"
-          />
-        </a>
-        <a onClick={clickHandler}>
-          <path
-            d="M665.495 626.22L630.338 656.367"
-            fill="none"
-            opacity="1"
-            stroke="#000000"
-            strokeLinecap="butt"
-            strokeLinejoin="round"
-            strokeWidth="2.46567"
-          />
-        </a>
-      </g>
-      <g id="Layer-2" visibility="hidden">
+      <g id="Layer-2" >
         <a onClick={clickHandler}>
           <path
             d="M4.32958 108.452L251.725 108.452L251.725 730.848L4.32958 730.848L4.32958 108.452Z"
@@ -452,4 +453,4 @@ const SvgWithClickablePaths = ({ onClick: clickHandler }: SVGProps) => {
   );
 };
 
-export default SvgWithClickablePaths;
+export default Building3;
