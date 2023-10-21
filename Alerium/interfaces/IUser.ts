@@ -1,3 +1,4 @@
+import {IRoom} from '@constants/interfaces'
 type IUser = {
   name: string;
   surname: string;
@@ -9,6 +10,6 @@ type IUser = {
   id: number;
   isResident: boolean;
   role: 'user' | 'admin';
-  
+  room: IRoom,
 };
 export type { IUser };
