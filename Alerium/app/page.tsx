@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { NavigationMenu } from "@/constants/components";
+import Stack from "@/components/custom/general/Stack";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           },
         ]}
       />
+      <Stack className={'w-[500px] h-[300px] skew-x-[30px] bg-amber-800'}></Stack>
     </main>
   );
 }

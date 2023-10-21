@@ -1,3 +1,5 @@
+// Next Images
+import Image from 'next/image'
 // Shad CN Components
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -7,7 +9,8 @@ import { Badge, LogInForm, Stack, Typography } from "@constants/components";
 import styles from "./style";
 // Types And Interfaces
 type LogInProps = {};
-
+// Images
+import image from '@/public/assets/images/sign-up-background-image.png'
 async function LogIn(props: LogInProps) {
   return (
     <Stack component={"main"} className={styles.body}>
@@ -27,11 +30,12 @@ async function LogIn(props: LogInProps) {
           </Typography>
           <LogInForm className={styles.form} />
           <Typography>
-            Haven't joined yet?{" "}
+            Haven't joined yet?
             <Button variant={"link"}>Create account!</Button>
           </Typography>
         </Stack>
         <Stack className={styles.imageContainer}>
+          <Image src={image} alt={'Background-Image'} className={styles.image}/>
           <Stack className={styles.textContainer}>
             <Typography className={styles.title}>Home awaits!</Typography>
             <Typography className={styles.imageSubtitle}>
@@ -50,7 +54,7 @@ async function LogIn(props: LogInProps) {
             <Badge>Affordable_Living</Badge>
           </Stack>
         </Stack>
-      </Stack>{" "}
+      </Stack>
     </Stack>
   );
 }
