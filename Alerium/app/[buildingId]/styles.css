@@ -52,6 +52,4 @@
     transition: all ease-in 300ms;
     z-index: 10;
 }
-.floor .label, .floor .label::after, .floor .plan {
-  background-color: #737373;
-}
+

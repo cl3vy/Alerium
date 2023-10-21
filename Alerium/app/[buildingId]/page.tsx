@@ -12,9 +12,9 @@ export default async function Page({
   return (
     <div className={"map"}>
       {floors?.map(({ floorNumber, id }, i) => (
-        <div className={`floor ${colors[i]}`} style={{zIndex: i * 10}} key={id}>
-          <span className="label">floorNumber</span>
-          <div className="plan"></div>
+        <div className={`floor`} style={{zIndex: floors.length - i * 10}} key={id}>
+          <span className={`label ${colors[i]} after:${colors[i]}`}>{floorNumber}</span>
+          <div className={`plan ${colors[i]}`}></div>
         </div>
       ))}
 
