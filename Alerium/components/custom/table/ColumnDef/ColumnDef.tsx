@@ -12,7 +12,7 @@ import styles from "./style";
 import { ArrowUpDown } from "lucide-react";
 import useFetch from "@/hooks/useFetch";
 import { endpoints } from "@constants/defaults";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 // Types And Interfaces
 export type IUserRow = {
   hasContract: boolean;
@@ -25,6 +25,12 @@ export type IUserRow = {
 };
 
 export const columns: ColumnDef<IUserRow>[] = [
+
+  {
+    accessorKey: "userId",
+    header: () => <div className="text-left font-medium">UserId</div>,
+    cell: ({ row }) => <TableCell content={row.getValue("userId")} />,
+  },
   {
     accessorKey: "hasContract",
     header: "",
@@ -80,16 +86,27 @@ export const columns: ColumnDef<IUserRow>[] = [
     accessorKey: "Contract",
     header: () => <div className="text-left font-medium">Actions</div>,
     cell: ({ row }) => {
+
+      const formData = new FormData();
+
       const [pdfDoc, setPdfDoc] = useState<File | null>();
+
+      useEffect(() => {
+          if(pdfDoc) {
+            formData.append("file", pdfDoc);
+            formData.append("userId", row.getValue("userId"))
+          }
+        },[pdfDoc]
+      )
       const onSelection = (pdf: File | undefined) => setPdfDoc(pdf);
 
       useFetch({
-        url: endpoints.url + "/api/user-alerium/upload-contracts",
+        url: endpoints.url + "/api/user-alerium/upload-contract",
         type: "POST",
         preventFetch: !pdfDoc,
-        body: {
-          file: pdfDoc,
-          userId: row.getValue("userId")
+        body: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
         },
       });
 

@@ -63,7 +63,7 @@ function LogInForm({ className }: LogInFormProps) {
 
           <FormItem<typeof schema>
             form={form}
-            name={"hashPassword"}
+            name={"password"}
             className={styles.field}
             password={true}
           >

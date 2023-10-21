@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="cl3vy (generated)" id="1697910764512-2">
+        <addColumn tableName="user_alerium">
+            <column name="first_payment_ammount" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697910764512-3">
+        <dropColumn columnName="last_payment_date" tableName="user_alerium"/>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697910764512-1">
+        <modifyDataType columnName="square_meters" newDataType="float(53)" tableName="room"/>
+    </changeSet>
+</databaseChangeLog>

@@ -57,7 +57,7 @@
                 <constraints nullable="false" primaryKey="true" primaryKeyName="user_aleriumPK"/>
             </column>
             <column name="birthday" type="date"/>
-            <column name="contract_blob" type="BLOB"/>
+            <column name="contract_blob" type="LONGBLOB"/>
             <column name="email" type="VARCHAR(255)"/>
             <column name="gender" type="VARCHAR(255)"/>
             <column name="hash_password" type="VARCHAR(255)"/>

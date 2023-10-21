@@ -44,13 +44,11 @@ public class WebConfigurer implements ServletContextInitializer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000"); // Set * to allow requests from all origins
+        config.addAllowedOrigin("http://localhost:9000"); // Set * to allow requests from all origins
         config.addAllowedHeader("*"); // Allow all headers
         config.addAllowedMethod("*"); // Allow all HTTP methods
-        source.registerCorsConfiguration("/api/**", config);
-        source.registerCorsConfiguration("/management/**", config);
-        source.registerCorsConfiguration("/v3/api-docs", config);
-        source.registerCorsConfiguration("/swagger-ui/**", config);
+        source.registerCorsConfiguration("/**", config); // Allow all endpoints
+
         return new CorsFilter(source);
     }
 }

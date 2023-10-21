@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="cl3vy (generated)" id="1697900832677-1">
+        <addColumn tableName="room">
+            <column name="ammount_people" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-2">
+        <addColumn tableName="user_alerium">
+            <column name="guarantee" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-3">
+        <addColumn tableName="user_alerium">
+            <column name="has_contract" type="bit"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-4">
+        <addColumn tableName="user_alerium">
+            <column name="last_payment_date" type="date"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-5">
+        <addColumn tableName="user_alerium">
+            <column name="payment_method" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-6">
+        <addColumn tableName="room">
+            <column name="square_meters" type="float(53)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="cl3vy (generated)" id="1697900832677-7">
+        <addColumn tableName="room">
+            <column name="typology" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

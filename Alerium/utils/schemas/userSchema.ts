@@ -23,7 +23,7 @@ userSchema.refine(data => data.hashPassword === data.repeatPassword, {
 });
 const logInSchema = z.object({
   email: z.string().email("This is not a valid email."),
-  hashPassword: z.string().min(8, {
+  password: z.string().min(8, {
     message: "Your password must be at least 8 characters.",
   }),
 
