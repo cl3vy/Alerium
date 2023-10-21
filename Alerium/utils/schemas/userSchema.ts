@@ -21,9 +21,15 @@ userSchema.refine(data => data.hashPassword === data.repeatPassword, {
   message: "Passwords must match",
   path: ['repeatPassword']
 });
+const logInSchema = z.object({
+  email: z.string().email("This is not a valid email."),
+  hashPassword: z.string().min(8, {
+    message: "Your password must be at least 8 characters.",
+  }),
 
+})
 
-export default userSchema;
+export {userSchema, logInSchema};
 
 
 

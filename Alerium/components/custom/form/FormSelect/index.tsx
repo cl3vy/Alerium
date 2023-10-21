@@ -1,7 +1,7 @@
 "use client";
 // React Peer Dependencies
 import React from "react";
-import { FormItemProps, Select, Stack } from "@constants/components";
+// Shad CN Components
 import {
   FormControl,
   FormDescription,
@@ -11,8 +11,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import styles from "@/components/custom/form/FormItem/style";
+// Custom Components
+import { FormItemProps, Select, Stack } from "@constants/components";
+// Utils
+import { userSchema } from "@constants/utils";
 // Types And Interfaces
-type FormSelectProps = {name: 'gender'} & FormItemProps
+type FormSelectProps = {name: 'gender'} & FormItemProps<typeof userSchema>
 
 function FormSelect({ name, children, className, form, formDescription }: FormSelectProps) {
   return (<Stack className={className}>
@@ -24,6 +28,7 @@ function FormSelect({ name, children, className, form, formDescription }: FormSe
         <FormControl>
           <Stack direction={"row"}>
             <Select
+              onValueChange={(value) => field.onChange(value)}
               defaultValue={"male"}
               items={[{
                 value: "male", description: "Male",
