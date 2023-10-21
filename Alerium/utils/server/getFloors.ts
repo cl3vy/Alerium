@@ -8,8 +8,13 @@ import { IFloor } from "@constants/interfaces";
 import { endpoints } from "@constants/defaults";
 export const getFloors = cache(async (buildingId: string) => {
   try {
+
     const buildingData = await axios.get<IFloor[]>(endpoints.url + `/api/building/floors/${buildingId}`);
+
     const initialBuildingData = buildingData.data;
+
+    console.log(initialBuildingData);
+
     if (!initialBuildingData)
       return {
         props: initialBuildingData,

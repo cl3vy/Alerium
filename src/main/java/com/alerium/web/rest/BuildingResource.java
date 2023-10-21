@@ -4,6 +4,7 @@ import com.alerium.domain.Building;
 import com.alerium.domain.Floor;
 import com.alerium.repository.BuildingRepository;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class BuildingResource {
         return buildingRepository.getReferenceById(id);
     }
 
+    @Transactional
     @GetMapping("/floors/{id}")
     public List<Floor> getFloorsOfBuilding(@PathVariable Long id) {
         var building = buildingRepository.getReferenceById(id);

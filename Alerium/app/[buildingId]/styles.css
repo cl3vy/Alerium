@@ -52,31 +52,6 @@
     transition: all ease-in 300ms;
     z-index: 10;
 }
-
-.floor.f3 .label, .floor.f3 .label::after, .floor.f3 .plan {
-    background-color: lightskyblue;
-}
-.floor.f3 .label, .floor.f3 .plan {
-    z-index: 30;
-}
-
-.floor.f2 .label, .floor.f2 .label::after, .floor.f2 .plan {
-    background-color: khaki;
-}
-.floor.f2 .label, .floor.f2 .plan {
-    z-index: 20;
-}
-
-.floor.f1 .label, .floor.f1 .label::after, .floor.f1 .plan {
-    background-color: pink;
-}
-.floor.f1 .label, .floor.f1 .plan {
-    z-index: 10;
-}
-
-.floor.f0 .label, .floor.f0 .label::after, .floor.f0 .plan {
-    background-color: lightblue;
-}
-.floor.f0 .label, .floor.f0 .plan {
-    z-index: 0;
+.floor .label, .floor .label::after, .floor .plan {
+  background-color: #737373;
 }
