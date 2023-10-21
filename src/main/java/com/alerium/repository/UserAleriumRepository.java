@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserAleriumRepository extends JpaRepository<UserAlerium, Long> {
     List<UserAlerium> findByIsResident(Boolean isResident);
+
+    UserAlerium findByEmail(String email);
 }

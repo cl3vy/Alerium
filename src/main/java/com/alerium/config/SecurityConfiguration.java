@@ -36,13 +36,12 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-        //        http
-//            .cors(withDefaults())
+        //                http
 //            .csrf(csrf -> csrf.disable())
 //            .authorizeHttpRequests(authz ->
 //                // prettier-ignore
 //                authz
-//                        .requestMatchers(mvc.pattern("/api/user-alerium")).permitAll()
+//                    .requestMatchers(mvc.pattern("/api/user-alerium")).permitAll()
 //                    .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/authenticate")).permitAll()
 //                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/authenticate")).permitAll()
 //                    .requestMatchers(mvc.pattern("/api/register")).permitAll()
@@ -69,7 +68,6 @@ public class SecurityConfiguration {
 
 
         http
-            .cors(withDefaults())
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz ->
                 authz
@@ -79,7 +77,7 @@ public class SecurityConfiguration {
         // You can add additional security configurations if needed
 
         return http.build();
-        // You can add additional security configurations if needed
+        //         You can add additional security configurations if needed
     }
 
     @Bean

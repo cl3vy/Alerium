@@ -44,7 +44,7 @@ public class WebConfigurer implements ServletContextInitializer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000"); // Change this to "*" to allow requests from all origins
+        config.addAllowedOrigin("http://localhost:9000"); // Set * to allow requests from all origins
         config.addAllowedHeader("*"); // Allow all headers
         config.addAllowedMethod("*"); // Allow all HTTP methods
         source.registerCorsConfiguration("/**", config); // Allow all endpoints
