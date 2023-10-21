@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {NavigationMenu } from "@/constants/components";
+import { NavigationMenu } from "@/constants/components";
 
 export default function Home() {
   return (

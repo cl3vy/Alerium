@@ -1,8 +1,10 @@
 type IUser = {
-  name: string,
-  surname: string,
-  birthday: Date | undefined,
-  phoneNumber: number | undefined,
+  name: string;
+  surname: string;
+  birthday: Date | undefined;
+  phoneNumber: number | undefined;
   email: string;
-}
-export type {IUser}
+  gender: 'male' | 'female' | 'other',
+  stateId: string
+};
+export type { IUser };

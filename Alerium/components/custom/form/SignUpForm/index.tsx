@@ -10,36 +10,63 @@ import { Form } from "@/components/ui/form";
 import { FormCalendar, FormItem, Stack } from "@constants/components";
 // Schemas
 import { userSchema as schema } from "@constants/utils";
+// Styles
+import styles from "./style";
 // Types And Interfaces
 type SignUpFormProps = {
   className?: string;
-}
-// Styles
-import styles from "./style";
+};
 
-function SignUpForm({className}: SignUpFormProps) {
-
+function SignUpForm({ className }: SignUpFormProps) {
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema), defaultValues: {
       email: "", surname: "", name: "",
     },
   });
-
   function onSubmit(values: z.infer<typeof schema>) {
     console.log(values);
   }
 
-  return (<Stack className={className} direction={'row'}>
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.mainContainer}>
-        <FormItem form={form} name={"name"} className={styles.smallField}>Your Name</FormItem>
-        <FormItem form={form} name={"surname"} className={styles.smallField}>Your Surname</FormItem>
-        <FormItem form={form} name={"email"}>Your Email</FormItem>
-        <FormItem form={form} name={"phoneNumber"}>Your Phone Number</FormItem>
-        <FormCalendar form={form} name={"birthday"}>Your Birthday</FormCalendar>
-        <Button className={styles.button} type="submit">Submit</Button>
-      </form>
-    </Form></Stack>);
+  return (<Stack className={className}>
+      <Form {...form} >
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className={styles.mainContainer}
+          method={'POST'}
+        >
+          <Stack direction={"row"} spacing={1}>
+            <FormItem form={form} name={"name"} className={styles.smallField}>
+              Your Name
+            </FormItem>
+            <FormItem form={form} name={"surname"} className={styles.smallField}>
+              Your Surname
+            </FormItem>
+          </Stack>
+          <Stack direction={"row"} spacing={1}>
+            <FormItem form={form} name={"email"} className={styles.smallField}>
+              Your Email
+            </FormItem>
+            <FormItem form={form} name={"phoneNumber"} className={styles.smallField}>
+              Your Phone Number
+            </FormItem>
+          </Stack>
+          <Stack direction={"row"} spacing={1}>
+            <FormItem form={form} name={"password"} className={styles.smallField} password={true}>
+              Password
+            </FormItem>
+            <FormItem form={form} name={"repeatPassword"} className={styles.smallField} password={true}>
+              Repeat Password
+            </FormItem>
+          </Stack>
+          <FormCalendar form={form} name={"birthday"}>
+            Your Birthday
+          </FormCalendar>
+          <Button className={styles.button} type="submit">
+            Submit
+          </Button>
+        </form>
+      </Form>
+    </Stack>);
 }
 
 export default SignUpForm;

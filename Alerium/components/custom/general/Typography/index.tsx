@@ -22,7 +22,7 @@ function Typography({
   className,
   startDecorator,
   endDecorator,
-                      component: Component = "h1"
+  component: Component = "h1",
 }: TypographyProps) {
   return (
     <Component

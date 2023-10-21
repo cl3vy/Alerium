@@ -38,7 +38,8 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        'amber-200': '0.5rem 0.5rem theme(colors.amber.200), -0.5rem -0.5rem theme(colors.amber.200)',
+        "amber-200":
+          "0.5rem 0.5rem theme(colors.amber.200), -0.5rem -0.5rem theme(colors.amber.200)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -99,7 +100,7 @@ module.exports = {
         "3xl": "1490px",
         "4xl": "1760px",
         "5xl": "1920px",
-        "xs": "550px"
+        "xs": "550px",
       },
       height: {
         "accordion-summary": "26px",
