@@ -57,6 +57,9 @@ public class UserAlerium {
     @Column(name = "contract_blob", columnDefinition = "BLOB")
     private byte[] contractBlob;
 
+    @Column(name = "role")
+    private String role;
+
     public UserAlerium() {}
 
     public UserAlerium(
@@ -74,7 +77,8 @@ public class UserAlerium {
         Room room,
         Boolean isDeleted,
         List<Request> requests,
-        byte[] contractBlob
+        byte[] contractBlob,
+        String role
     ) {
         this.id = id;
         this.name = name;
@@ -91,6 +95,7 @@ public class UserAlerium {
         this.isDeleted = isDeleted;
         this.requests = requests;
         this.contractBlob = contractBlob;
+        this.role = role;
     }
 
     public Long getId() {
@@ -211,5 +216,13 @@ public class UserAlerium {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
