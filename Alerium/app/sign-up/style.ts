@@ -6,7 +6,7 @@ const styles = {
   imageContainer:
     "hidden xl:flex xl:w-[calc(60%-theme(spacing.1))] h-full items-center justify-end px-5 relative",
   form: "pt-5",
-  page: "h-full w-full xs:h-[80%] xs:w-[80%] xs:box-border rounded-3xl xs:shadow-amber-200 p-7",
+  page: "h-full w-full xs:h-[80%] xs:w-[80%] xs:box-border rounded-3xl xs:border-4 p-7",
   title: "font-semibold text-3xl justify-center",
   textContainer: "w-full justify-center items-center px-10 gap-y-2",
   imageSubtitle: "text-lg text-center",

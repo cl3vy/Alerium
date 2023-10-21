@@ -8,23 +8,38 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 // Custom Components
 import { FormCalendar, FormItem, Stack } from "@constants/components";
+// Custom Hooks
+import {useFetch} from '@constants/hooks'
 // Schemas
 import { userSchema as schema } from "@constants/utils";
 // Styles
 import styles from "./style";
+import { endpoints } from "@constants/defaults";
+import { useState } from "react";
+import { IUser } from "@/interfaces/IUser";
 // Types And Interfaces
 type SignUpFormProps = {
   className?: string;
 };
 
 function SignUpForm({ className }: SignUpFormProps) {
+  const [userData, setUserData] = useState<z.infer<typeof schema> | undefined>()
+  useFetch({
+    url: endpoints.url + '/api/user-alerium',
+    type: "POST",
+    body: userData,
+    preventFetch: !userData,
+    onSuccess: () => console.log('success')
+  })
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema), defaultValues: {
       email: "", surname: "", name: "",
     },
   });
+
   function onSubmit(values: z.infer<typeof schema>) {
     console.log(values);
+    setUserData(values)
   }
 
   return (<Stack className={className}>

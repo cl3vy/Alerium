@@ -25,6 +25,7 @@ public class UserAleriumResource {
         return userAleriumRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:9000")
     @PostMapping
     public ResponseEntity<UserAlerium> createUserAlerium(@RequestBody UserAlerium userAlerium) {
         userAlerium.setActive(true);

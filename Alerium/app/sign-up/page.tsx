@@ -2,17 +2,17 @@
 import Image from "next/image";
 // Shad CN Components
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 // Custom Components
 import { Badge, SignUpForm, Stack, Typography } from "@constants/components";
 // Styles
 import styles from "./style";
-import { Separator } from "@/components/ui/separator";
 // Images
 import background from "@/public/assets/images/sign-up-background-image.png";
 // Types And Interfaces
 type SignInProps = {};
 
-function SignIn(props: SignInProps) {
+async function SignIn(props: SignInProps) {
   return (
     <Stack component={"main"} className={styles.body}>
       <Stack direction={"row"} className={styles.page}>

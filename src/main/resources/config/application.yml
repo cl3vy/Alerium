@@ -17,6 +17,11 @@
 ---
 # Conditionally disable springdoc on missing api-docs profile
 spring:
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    allow-credentials: true
   config:
     activate:
       on-profile: '!api-docs'

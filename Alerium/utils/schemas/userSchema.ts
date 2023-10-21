@@ -13,16 +13,15 @@ const userSchema = z.object({
   password: z.string().min(8, {
     message: "Your password must be at least 8 characters.",
   }),
-}).and(
-  z.object({
-    repeatPassword: z.string().refine(function (this: { password?: string }, val) {
-      if(this.password) return val === this.password
-      else return false;
-    }, {
-      message: "Passwords must match",
-    }),
-  })
-);
+  repeatPassword: z.string()
+});
+
+userSchema.refine(data => data.password === data.repeatPassword, {
+  message: "Passwords must match",
+  path: ['repeatPassword']
+});
+
+
 export default userSchema;
 
 
