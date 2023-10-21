@@ -32,9 +32,29 @@ public class Room {
     @JoinColumn(name = "room_id")
     private List<Image> images;
 
+    @Column(name = "typology")
+    private String typology;
+
+    @Column(name = "ammountPeople")
+    private Long ammountPeople;
+
+    @Column(name = "squareMeters")
+    private Double squareMeters;
+
     public Room() {}
 
-    public Room(Long id, Long roomNumber, UserAlerium userAlerium, Boolean booked, Date startDate, Date endDate, List<Image> images) {
+    public Room(
+        Long id,
+        Long roomNumber,
+        UserAlerium userAlerium,
+        Boolean booked,
+        Date startDate,
+        Date endDate,
+        List<Image> images,
+        String typology,
+        Long ammountPeople,
+        Double squareMeters
+    ) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.userAlerium = userAlerium;
@@ -42,6 +62,9 @@ public class Room {
         this.startDate = startDate;
         this.endDate = endDate;
         this.images = images;
+        this.typology = typology;
+        this.ammountPeople = ammountPeople;
+        this.squareMeters = squareMeters;
     }
 
     public Long getId() {
@@ -98,5 +121,29 @@ public class Room {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    public String getTypology() {
+        return typology;
+    }
+
+    public void setTypology(String typology) {
+        this.typology = typology;
+    }
+
+    public Long getAmmountPeople() {
+        return ammountPeople;
+    }
+
+    public void setAmmountPeople(Long ammountPeople) {
+        this.ammountPeople = ammountPeople;
+    }
+
+    public Double getSquareMeters() {
+        return squareMeters;
+    }
+
+    public void setSquareMeters(Double squareMeters) {
+        this.squareMeters = squareMeters;
     }
 }

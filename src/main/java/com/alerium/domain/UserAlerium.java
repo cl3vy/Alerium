@@ -54,11 +54,23 @@ public class UserAlerium {
     private List<Request> requests;
 
     @Lob
-    @Column(name = "contract_blob", columnDefinition = "BLOB")
+    @Column(name = "contract_blob", columnDefinition = "LONGBLOB")
     private byte[] contractBlob;
 
     @Column(name = "role")
     private String role;
+
+    @Column(name = "has_contract")
+    private Boolean hasContract;
+
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
+    @Column(name = "guarantee")
+    private Long guarantee;
+
+    @Column(name = "first_payment_ammount")
+    private Long firstPaymentAmmount;
 
     public UserAlerium() {}
 
@@ -78,7 +90,11 @@ public class UserAlerium {
         Boolean isDeleted,
         List<Request> requests,
         byte[] contractBlob,
-        String role
+        String role,
+        Boolean hasContract,
+        String paymentMethod,
+        Long guarantee,
+        Long firstPaymentAmmount
     ) {
         this.id = id;
         this.name = name;
@@ -96,6 +112,10 @@ public class UserAlerium {
         this.requests = requests;
         this.contractBlob = contractBlob;
         this.role = role;
+        this.hasContract = hasContract;
+        this.paymentMethod = paymentMethod;
+        this.guarantee = guarantee;
+        this.firstPaymentAmmount = firstPaymentAmmount;
     }
 
     public Long getId() {
@@ -224,5 +244,37 @@ public class UserAlerium {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getHasContract() {
+        return hasContract;
+    }
+
+    public void setHasContract(Boolean hasContract) {
+        this.hasContract = hasContract;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Long getGuarantee() {
+        return guarantee;
+    }
+
+    public void setGuarantee(Long guarantee) {
+        this.guarantee = guarantee;
+    }
+
+    public Long getFirstPaymentAmmount() {
+        return firstPaymentAmmount;
+    }
+
+    public void setFirstPaymentAmmount(Long firstPaymentAmmount) {
+        this.firstPaymentAmmount = firstPaymentAmmount;
     }
 }
