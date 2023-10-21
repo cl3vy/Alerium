@@ -31,7 +31,7 @@ function UploadPDF({onSelection}:UploadPDFProps) {
         <Label htmlFor="picture">PDF</Label>
         <Input id="PDF" type="file" onChange={(e) => { setFile(e.target.files?.[0])}}/>
         <Button onClick={() => onSelection(file)}>Upload PDF</Button>
-          
+
       </Stack>
     </Stack>
   );

@@ -1,4 +1,6 @@
 "use client";
+// React Peer Dependencies
+import {useEffect, useState, useRef} from "react";
 // Table Components
 import { ColumnDef } from "@tanstack/react-table";
 // Shad CN Components
@@ -6,13 +8,14 @@ import { Button } from "@/components/ui/button";
 // Custom Components
 import { Modal, RowActions, TableCell, UploadPDF } from "@constants/components";
 // Custom Hooks
+import useFetch from "@/hooks/useFetch";
 // Styles
 import styles from "./style";
 // Icons
 import { ArrowUpDown } from "lucide-react";
-import useFetch from "@/hooks/useFetch";
+// Others
 import { endpoints } from "@constants/defaults";
-import {useEffect, useState} from "react";
+
 // Types And Interfaces
 export type IUserRow = {
   hasContract: boolean;
@@ -87,14 +90,14 @@ export const columns: ColumnDef<IUserRow>[] = [
     header: () => <div className="text-left font-medium">Actions</div>,
     cell: ({ row }) => {
 
-      const formData = new FormData();
+      const formData = useRef(new FormData());
 
       const [pdfDoc, setPdfDoc] = useState<File | null>();
 
       useEffect(() => {
           if(pdfDoc) {
-            formData.append("file", pdfDoc);
-            formData.append("userId", row.getValue("userId"))
+            formData.current.append("file", pdfDoc);
+            formData.current.append("userId", row.getValue("userId"))
           }
         },[pdfDoc]
       )
@@ -104,7 +107,7 @@ export const columns: ColumnDef<IUserRow>[] = [
         url: endpoints.url + "/api/user-alerium/upload-contract",
         type: "POST",
         preventFetch: !pdfDoc,
-        body: formData,
+        body: formData.current,
         headers: {
           'Content-Type': 'multipart/form-data',
         },
