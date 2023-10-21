@@ -6,18 +6,19 @@ type SvgViewProps = {
 
 }
 export type SVGProps = {
-  onClick: () => void
+  onClick: () => void;
+  className?: string
 }
 
 // SVGs
 import Building1 from '../SingularSVG/Building1'
 import Building2 from "@/components/custom/buildings/SingularSVG/Building2";
+import Building3 from "@/components/custom/buildings/SingularSVG/Building3";
 function SvgView({}: SvgViewProps) {
   const clickHandler = () => console.log('hi')
   return (
-    <Stack className={'w-[500px] h-[500px]'}>
-      {/*<Building1 onClick={clickHandler} />*/}
-      <Building2 onClick={clickHandler} />
+    <Stack className={'relative w-full h-[500px] overflow-hidden'}>
+        <Building3 onClick={clickHandler} className={''}/>
     </Stack>
   );
 }

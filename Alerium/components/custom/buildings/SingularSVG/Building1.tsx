@@ -4,7 +4,7 @@ import React from "react";
 // Types And Interfaces
 import {SVGProps} from "@/components/custom/buildings/SvgView";
 
-function Building1({onClick: clickHandler}: SVGProps) {
+function Building1({onClick: clickHandler, className}: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,6 +14,7 @@ function Building1({onClick: clickHandler}: SVGProps) {
       strokeMiterlimit="10"
       clipRule="evenodd"
       viewBox="0 0 1000 1000"
+      className={className}
     >
       <g>
         <a onClick={clickHandler} >

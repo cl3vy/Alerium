@@ -17,9 +17,7 @@ export default function Home() {
           },
         ]}
       />
-      <Building1Svg onClick={() => console.log('svg clicked')}/>
       <Stack className={'w-[500px] h-[300px] skew-x-[30px] bg-amber-800'}></Stack>
-
     </main>
   );
 }
