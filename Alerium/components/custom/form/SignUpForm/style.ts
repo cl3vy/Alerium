@@ -1,6 +1,6 @@
 const styles = {
-  mainContainer: "flex flex-col gap-1 flex-wrap",
+  mainContainer: "flex flex-row gap-2 flex-wrap",
   button: "my-3",
-  smallField: "w-[calc(50%-theme(spacing.1))]",
+  smallField: "w-[calc(50%-theme(spacing.2))]",
 };
 export default styles;

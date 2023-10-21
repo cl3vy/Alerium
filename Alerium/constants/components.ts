@@ -14,6 +14,7 @@ import Tooltip, { TooltipProps } from "@/components/custom/general/Tooltip";
 import CalendarInput, {
   CalendarInputProps,
 } from "@/components/custom/general/CalendarInput";
+import Select, {SelectItemProps} from '@/components/custom/general/Select'
 // Navigation
 import NavigationLink, {
   NavigationLinkProps,
@@ -38,6 +39,7 @@ import FormCalendar, {
   FormCalendarProps,
 } from "@/components/custom/form/FormCalendar";
 import SignUpForm from "@/components/custom/form/SignUpForm";
+import FormSelect, {FormSelectProps} from "@/components/custom/form/FormSelect";
 export {
   Provider,
   ThemeProvider,
@@ -46,6 +48,7 @@ export {
   Modal,
   Tabs,
   Tooltip,
+  Select,
   CalendarInput,
   ThemeToggle,
   NavigationLink,
@@ -57,6 +60,7 @@ export {
   FormItem,
   FormCalendar,
   SignUpForm,
+  FormSelect
 };
 export type {
   StackProps,
@@ -65,6 +69,7 @@ export type {
   TabProps,
   TabsProps,
   TooltipProps,
+  SelectItemProps,
   CalendarInputProps,
   NavigationLinkProps,
   FullNavigationItemProps,
@@ -75,4 +80,5 @@ export type {
   BadgeProps,
   FormItemProps,
   FormCalendarProps,
+  FormSelectProps
 };

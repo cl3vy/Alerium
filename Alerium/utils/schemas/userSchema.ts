@@ -10,13 +10,14 @@ const userSchema = z.object({
   email: z.string().email("This is not a valid email."),
   phoneNumber: z.string().optional(),
   birthday: z.date(),
-  password: z.string().min(8, {
+  hashPassword: z.string().min(8, {
     message: "Your password must be at least 8 characters.",
   }),
-  repeatPassword: z.string()
+  repeatPassword: z.string(),
+  gender: z.string(),
 });
 
-userSchema.refine(data => data.password === data.repeatPassword, {
+userSchema.refine(data => data.hashPassword === data.repeatPassword, {
   message: "Passwords must match",
   path: ['repeatPassword']
 });

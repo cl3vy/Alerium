@@ -22,12 +22,15 @@ import { UseFormReturn } from "react-hook-form";
 type TextInputFieldName = Exclude<keyof z.infer<typeof userSchema>, "birthday">;
 type FormItemProps = {
   form: UseFormReturn<z.infer<typeof userSchema>>;
-  name: TextInputFieldName;
   children: ReactNode;
   formDescription?: string;
   className?: string;
-  password?: boolean
+
 };
+type FormFieldProps = {
+  name: TextInputFieldName;
+  password?: boolean
+} & FormItemProps
 // Styles
 import styles from './style'
 // Icon
@@ -40,7 +43,7 @@ function FormItem({
   formDescription,
   className,
                     password
-}: FormItemProps) {
+}: FormFieldProps) {
   const [hidden, setHidden] = useState(password)
   return (
     <Stack className={className}>

@@ -1,6 +1,6 @@
 "use client";
 // React Peer Dependencies
-import React, { ReactNode } from "react";
+import React from "react";
 // Shad CN Components
 import {
   FormControl,
@@ -11,44 +11,43 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 // Custom Components
-import { CalendarInput } from "@constants/components";
+import { CalendarInput, FormItemProps, Stack } from "@constants/components";
+import styles from "../FormItem/style";
 // Schemas
-import { userSchema } from "@constants/utils";
-import * as z from "zod";
+
 // Types And Interfaces
-import { UseFormReturn } from "react-hook-form";
-type FormCalendarProps = {
-  form: UseFormReturn<z.infer<typeof userSchema>>;
+interface FormCalendarProps extends FormItemProps {
   name: "birthday";
-  children: ReactNode;
-  formDescription?: string;
-};
+}
 
 function FormCalendar({
   name,
   form,
   children,
   formDescription,
+  className,
 }: FormCalendarProps) {
   return (
-    <FormField
-      control={form.control}
-      name={name}
-      render={({ field }) => (
-        <ShadCNFormItem>
-          <FormLabel>{children}</FormLabel>
-          <FormControl>
-            <CalendarInput onSelection={(date) => field.onChange(date)}>
-              Pick a Date
-            </CalendarInput>
-          </FormControl>
-          {formDescription && (
-            <FormDescription>{formDescription}</FormDescription>
-          )}
-          <FormMessage>{form.formState.errors[name]?.message}</FormMessage>
-        </ShadCNFormItem>
-      )}
-    />
+    <Stack className={className}>
+      <FormField
+        control={form.control}
+        name={name}
+        render={({ field }) => (
+          <ShadCNFormItem>
+            <FormLabel className={styles.label}>{children}</FormLabel>
+            <FormControl>
+              <CalendarInput onSelection={(date) => field.onChange(date)}>
+                Pick a Date
+              </CalendarInput>
+            </FormControl>
+            {formDescription && (
+              <FormDescription>{formDescription}</FormDescription>
+            )}
+            <FormMessage className={styles.errorLabel}>{form.formState.errors[name]?.message}</FormMessage>
+          </ShadCNFormItem>
+        )}
+      />
+    </Stack>
   );
 }
 
