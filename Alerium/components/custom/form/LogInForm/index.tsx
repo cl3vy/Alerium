@@ -18,7 +18,6 @@ import { endpoints } from "@constants/defaults";
 import { useState } from "react";
 // Types And Interfaces
 import { IRoom, IUser } from "@constants/interfaces";
-
 type LogInFormProps = {
   className?: string;
 };
@@ -27,7 +26,7 @@ function LogInForm({ className }: LogInFormProps) {
   const [userLogin, setUserLogin] = useState<
     z.infer<typeof schema> | undefined
   >();
-  useFetch<{ user: Partial<IUser>; room: Partial<IRoom> }>({
+  useFetch<Partial<IUser>>({
     url: endpoints.url + "/api/user-alerium/authenticate",
     type: "POST",
     body: userLogin,
