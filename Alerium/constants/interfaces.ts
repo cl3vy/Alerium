@@ -7,4 +7,6 @@ import {
 import { Without, XOR } from "@/interfaces/Exclusive";
 import { IUser } from "@/interfaces/IUser";
 import { IRoom } from '@/interfaces/IRoom';
-export type { ITheme, Colors, FontAwesomeTypes, Spacings, Without, XOR, IUser, IRoom };
+import {IFloor} from "@/interfaces/IFloor";
+
+export type { ITheme, Colors, FontAwesomeTypes, Spacings, Without, XOR, IUser, IRoom, IFloor };

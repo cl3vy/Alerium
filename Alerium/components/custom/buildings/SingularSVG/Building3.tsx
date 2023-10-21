@@ -14,6 +14,7 @@ const Building3 = ({ onClick: clickHandler, className }: SVGProps) => {
         clipRule: "evenodd",
         strokeLinecap: "round",
         strokeLinejoin: "round",
+        overflow: 'visible',
       }}
       width={'100%'}
       height={'100%'}
@@ -23,7 +24,7 @@ const Building3 = ({ onClick: clickHandler, className }: SVGProps) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <defs />
-      <g id="Layer-1">
+      <g className={'hover:scale-125 transition'} id="Layer-1">
         <g id="Layer-1-copy-copy" >
           <a onClick={clickHandler}>
             <path
@@ -164,7 +165,7 @@ const Building3 = ({ onClick: clickHandler, className }: SVGProps) => {
           />
         </a>
       </g>
-      <g id="Layer-2" >
+      <g className={'hover:scale-125 transition'} id="Layer-2" >
         <a onClick={clickHandler}>
           <path
             d="M4.32958 108.452L251.725 108.452L251.725 730.848L4.32958 730.848L4.32958 108.452Z"
@@ -312,7 +313,7 @@ const Building3 = ({ onClick: clickHandler, className }: SVGProps) => {
           />
         </a>
       </g>
-      <g id="Layer-3">
+      <g className={'hover:scale-125 transition'} id="Layer-3">
         <a onClick={clickHandler}>
           <path
             d="M891.801 761.116L325.296 761.116L325.296 969.779L891.801 969.779L891.801 761.116Z"

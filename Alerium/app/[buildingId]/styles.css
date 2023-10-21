@@ -1,0 +1,82 @@
+.map {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    width: 200px;
+    padding-top: 50px;
+    z-index: 1;
+}
+
+.floor {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 400px;
+    height: 60px;
+    padding: 0;
+    transition: padding ease-in 300ms;
+}
+.floor:hover:not(:first-child) {
+    padding-top: 110px;
+    padding-bottom: 10px;
+}
+.floor:hover .plan {
+    transform: perspective(700px) translateX(120px) translateY(-100px) rotateX(45deg) rotateY(0deg) rotateZ(20deg);
+}
+.floor .label {
+    position: absolute;
+    bottom: 3px;
+    width: 24px;
+    line-height: 24px;
+    border-radius: 999px;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    z-index: 100;
+}
+.floor .label::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    left: 10px;
+    top: 12px;
+    z-index: -1;
+}
+.floor .plan {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    transform: perspective(900px) translateX(120px) translateY(-100px) translateZ(0px) rotateX(60deg) rotateY(0deg) rotateZ(60deg);
+    transition: all ease-in 300ms;
+    z-index: 10;
+}
+
+.floor.f3 .label, .floor.f3 .label::after, .floor.f3 .plan {
+    background-color: lightskyblue;
+}
+.floor.f3 .label, .floor.f3 .plan {
+    z-index: 30;
+}
+
+.floor.f2 .label, .floor.f2 .label::after, .floor.f2 .plan {
+    background-color: khaki;
+}
+.floor.f2 .label, .floor.f2 .plan {
+    z-index: 20;
+}
+
+.floor.f1 .label, .floor.f1 .label::after, .floor.f1 .plan {
+    background-color: pink;
+}
+.floor.f1 .label, .floor.f1 .plan {
+    z-index: 10;
+}
+
+.floor.f0 .label, .floor.f0 .label::after, .floor.f0 .plan {
+    background-color: lightblue;
+}
+.floor.f0 .label, .floor.f0 .plan {
+    z-index: 0;
+}

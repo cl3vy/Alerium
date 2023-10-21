@@ -7,7 +7,8 @@ import validateEmail from "@/utils/functions/validateEmail";
 // Schemas
 import { userSchema, logInSchema} from "@/utils/schemas/userSchema";
 import { getUsers } from "@/utils/server/getUsers";
+import {getFloors} from "@/utils/server/getFloors";
 // SERVER
 
-export { editQueryParams, normalizeURL, validateEmail, userSchema, logInSchema, getUsers };
+export { editQueryParams, normalizeURL, validateEmail, userSchema, logInSchema, getUsers, getFloors };
 export type { PushHistoryParams };
