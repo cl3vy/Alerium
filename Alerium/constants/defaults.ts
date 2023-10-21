@@ -1,8 +1,6 @@
 const endpoints = {};
 const themeDefaults = {
   fontawesomeType: "duotone",
+  imagesPath: '@/public/assets/images'
 };
-const providerDefaults = {
-  autoOpenLeagueID: 6,
-};
-export { endpoints, themeDefaults, providerDefaults };
+export { endpoints, themeDefaults};

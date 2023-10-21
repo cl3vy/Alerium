@@ -1,6 +1,6 @@
 "use client";
 // React Peer Dependencies
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 // Shad CN Components
 import {
     FormControl, FormDescription, FormField, FormItem as ShadCNFormItem, FormLabel, FormMessage
@@ -26,9 +26,10 @@ function FormCalendar({name, form, children, formDescription}: FormCalendarProps
             name={name}
             render={({ field }) => (
                 <ShadCNFormItem>
+                  <FormLabel>{children}</FormLabel>
                     <FormControl>
                         <CalendarInput onSelection={(date) => field.onChange(date)}>
-                            {children}
+                            Pick a Date
                         </CalendarInput>
                     </FormControl>
                     {formDescription && <FormDescription>
