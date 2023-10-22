@@ -61,43 +61,43 @@ public class UserAleriumResource {
 
         var savedUserAlerium = userAleriumRepository.save(userAlerium);
 
-        List<Building> buildings = buildingRepository.findAll();
-
-        for (Building b : buildings) {
-            var floors = b.getFloors();
-
-            for (int i = 1; i < floors.size() + 1; i++) {
-                for (int j = 1; j < 21; j++) {
-                    Room room = new Room();
-
-                    room.setBooked(false);
-                    room.setRoomNumber((long) (j + 100 * i));
-
-                    Random random = new Random();
-                    int ra = random.nextInt(4) + 1;
-
-                    room.setAmmountPeople((long) ra);
-
-                    if (room.getAmmountPeople() == 1) {
-                        room.setTypology("Single");
-                    } else if (room.getAmmountPeople() == 2) {
-                        room.setTypology("Double");
-                    } else if (room.getAmmountPeople() == 3) {
-                        room.setTypology("1 + 1");
-                    } else if (room.getAmmountPeople() == 4) {
-                        room.setTypology("2 + 1");
-                    }
-
-                    int squareMeters = random.nextInt(61) + 30; // Range: 30 to 90
-
-                    room.setSquareMeters((double) squareMeters);
-
-                    room.setFloor(floors.get(i - 1));
-
-                    roomRepository.save(room);
-                }
-            }
-        }
+        //        List<Building> buildings = buildingRepository.findAll();
+        //
+        //        for (Building b : buildings) {
+        //            var floors = b.getFloors();
+        //
+        //            for (int i = 1; i < floors.size() + 1; i++) {
+        //                for (int j = 1; j < 21; j++) {
+        //                    Room room = new Room();
+        //
+        //                    room.setBooked(false);
+        //                    room.setRoomNumber((long) (j + 100 * i));
+        //
+        //                    Random random = new Random();
+        //                    int ra = random.nextInt(4) + 1;
+        //
+        //                    room.setAmmountPeople((long) ra);
+        //
+        //                    if (room.getAmmountPeople() == 1) {
+        //                        room.setTypology("Single");
+        //                    } else if (room.getAmmountPeople() == 2) {
+        //                        room.setTypology("Double");
+        //                    } else if (room.getAmmountPeople() == 3) {
+        //                        room.setTypology("1 + 1");
+        //                    } else if (room.getAmmountPeople() == 4) {
+        //                        room.setTypology("2 + 1");
+        //                    }
+        //
+        //                    int squareMeters = random.nextInt(61) + 30; // Range: 30 to 90
+        //
+        //                    room.setSquareMeters((double) squareMeters);
+        //
+        //                    room.setFloor(floors.get(i - 1));
+        //
+        //                    roomRepository.save(room);
+        //                }
+        //            }
+        //        }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUserAlerium);
     }
