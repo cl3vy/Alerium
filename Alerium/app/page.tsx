@@ -1,23 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { NavigationMenu } from "@/constants/components";
+import { NavigationMenu, SvgView, Typography } from "@/constants/components";
 import Stack from "@/components/custom/general/Stack";
-// SVGs
-import Building1Svg from '@/public/assets/SVGs/Building-1.svg'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
+import Logo from '@/public/assets/images/logo-with-text.png'
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button>Tracker App</Button>
-      <NavigationMenu
-        items={[
-          {
-            description: "hi",
-            accordion: true,
-            accordionID: "12",
-            accordionItems: [{ description: "bye" }],
-          },
-        ]}
-      />
-      <Stack className={'w-[500px] h-[300px] skew-x-[30px] bg-amber-800'}></Stack>
-    </main>
+    <Stack component={'main'} className={'p-4 relative'}>
+      <SvgView />
+      <Card className={'absolute w-[23%] top-[10px] right-[10px]'}>
+        <CardHeader>
+          <CardTitle>A Project build By Fole</CardTitle>
+          <CardDescription>Decent, comfortable, safe accommodation with high standard services and facilities and a lively and attractive environment.</CardDescription>
+        </CardHeader>
+        <CardContent>
+         <Image src={Logo} alt={'Fole Logo'} />
+        </CardContent>
+        <CardFooter>
+          Accommodation and services with the highest standards, a lively, attractive, safe, comprehensive environment and a wide range of services for a student life as dynamic as possible.
+        </CardFooter>
+      </Card>
+    </Stack>
   );
 }

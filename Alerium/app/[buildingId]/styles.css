@@ -38,7 +38,7 @@
 .floor .label::after {
     content: "";
     position: absolute;
-    width: 120px;
+    width: 400px;
     height: 1px;
     left: 10px;
     top: 12px;
@@ -46,8 +46,8 @@
 }
 .floor .plan {
     position: relative;
-    width: 200px;
-    height: 300px;
+    width: 600px;
+    height: 400px;
     transform: perspective(900px) translateX(120px) translateY(-100px) translateZ(0px) rotateX(60deg) rotateY(0deg) rotateZ(60deg);
     transition: all ease-in 300ms;
     z-index: 10;

@@ -17,13 +17,13 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 // Custom Components
-import { Stack } from "@/constants/components";
+import { Stack, StackProps } from "@/constants/components";
 // Icons
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 // Type And Interfaces
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData, TValue> extends StackProps {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
@@ -31,6 +31,7 @@ interface DataTableProps<TData, TValue> {
 function DataTable<TData, TValue>({
   columns,
   data,
+  ...rest
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -50,7 +51,7 @@ function DataTable<TData, TValue>({
   });
 
   return (
-    <Stack className="rounded-md border">
+    <Stack {...rest}>
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."
@@ -62,12 +63,12 @@ function DataTable<TData, TValue>({
         />
       </div>
       <Table>
-        <TableHeader>
+        <TableHeader className={'dark:border-grey-600 after:dark:border-grey-600'}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow key={headerGroup.id} className={'dark:border-grey-600'}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className={'dark:border-grey-600'}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(

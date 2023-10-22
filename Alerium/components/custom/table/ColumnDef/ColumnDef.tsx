@@ -6,13 +6,13 @@ import { ColumnDef } from "@tanstack/react-table";
 // Shad CN Components
 import { Button } from "@/components/ui/button";
 // Custom Components
-import { Modal, RowActions, TableCell, UploadPDF } from "@constants/components";
+import { Modal, RowActions, TableCell, UploadPDF, ViewUser } from "@constants/components";
 // Custom Hooks
 import useFetch from "@/hooks/useFetch";
 // Styles
 import styles from "./style";
 // Icons
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown, Download, Upload, User } from "lucide-react";
 // Others
 import { endpoints } from "@constants/defaults";
 import { IRoom } from "@/interfaces/IRoom";
@@ -24,7 +24,7 @@ export type IUserRow = {
   surname: string;
   email: string;
   phoneNumber: string;
-  userId: number;
+  id: number;
   gender: string;
   birthday: Date;
   stateId: string;
@@ -40,9 +40,9 @@ export type IUserRow = {
 export const columns: ColumnDef<IUserRow>[] = [
 
   {
-    accessorKey: "userId",
-    header: () => <div className="text-left font-medium">UserId</div>,
-    cell: ({ row }) => <TableCell content={row.getValue("userId")} />,
+    accessorKey: "id",
+    header: () => <div className="text-left font-medium">User ID</div>,
+    cell: ({ row }) => <TableCell content={row.getValue("id")} />,
   },
   {
     accessorKey: "hasContract",
@@ -75,29 +75,9 @@ export const columns: ColumnDef<IUserRow>[] = [
     header: () => <div className="text-left font-medium">Phone Number</div>,
     cell: ({ row }) => <TableCell content={row.getValue("phoneNumber")} />,
   },
-  // {
-  //   accessorKey: "roomNumber",
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button
-  //         variant="ghost"
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //       >
-  //         Email
-  //         <ArrowUpDown className="ml-2 h-4 w-4" />
-  //       </Button>
-  //     );
-  //   },
-  //   cell: ({ row }) => <TableCell content={row.getValue("room")} />,
-  // },
-  {
-    accessorKey: "Actions",
-    header: () => <div className="text-left font-medium">Actions</div>,
-    cell: ({ row }) => <RowActions hasContract={row.getValue("hasContract")} />,
-  },
   {
     accessorKey: "Contract",
-    header: () => <div className="text-left font-medium">Actions</div>,
+    header: () => <div className="text-left font-medium">Contract</div>,
     cell: ({ row }) => {
 
       const formData = useRef(new FormData());
@@ -107,7 +87,7 @@ export const columns: ColumnDef<IUserRow>[] = [
       useEffect(() => {
           if(pdfDoc) {
             formData.current.append("file", pdfDoc);
-            formData.current.append("userId", row.getValue("userId"))
+            formData.current.append("userId", row.getValue("id"))
           }
         },[pdfDoc]
       )
@@ -128,7 +108,7 @@ export const columns: ColumnDef<IUserRow>[] = [
           dialogTitle={row.getValue("hasContract") ? "View PDF" : "Upload PDF"}
           dialogTrigger={
             <Button>
-              {row.getValue("hasContract") ? "View PDF" : "Upload PDF"}
+              {row.getValue("hasContract") ? <Download /> : <Upload />}
             </Button>
           }
         >
@@ -136,5 +116,22 @@ export const columns: ColumnDef<IUserRow>[] = [
         </Modal>
       );
     },
+  },
+  {
+    accessorKey: "User",
+    header: () => <div className="text-left font-medium">User</div>,
+    cell: ({ row }) => {
+      const userData = row.original
+     return ( <Modal
+       dialogTitle={'User Data'}
+       dialogTrigger={
+         <Button>
+           <User/>
+         </Button>
+       }
+     >
+    <ViewUser {...userData}/>
+     </Modal>)
+    }
   },
 ];

@@ -1,10 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Provider, ThemeProvider, ThemeToggle } from "@constants/components";
+import { Provider, Stack, ThemeProvider, ThemeToggle } from "@constants/components";
 import "../public/assets/fonts/fontawesome.css";
 import { Toaster } from "@/components/ui/toaster";
 
 import { Inter } from "next/font/google";
+import NavigationBar from "@/components/custom/navigation/NavigationBar";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({ subsets: ["latin"] });
@@ -27,9 +28,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
           <Provider>
-            {children}
+            <Stack>
+              <NavigationBar />
+              <Stack className={'height-[calc(100%-35px)]'}>{children}</Stack>
+            </Stack>
             <Toaster />
           </Provider>
         </ThemeProvider>

@@ -12,6 +12,7 @@ type UploadPDFProps = {
 // Styles
 import styles from './style';
 import { Button } from "@/components/ui/button";
+import { Upload } from "lucide-react";
 function UploadPDF({onSelection}:UploadPDFProps) {
   const [file, setFile] = useState<File | undefined>();
   const onDrop = useCallback((e: DragEvent<HTMLDivElement>) => {
@@ -26,13 +27,13 @@ function UploadPDF({onSelection}:UploadPDFProps) {
   }, []);
 
   return (
-    <Stack onDrop={onDrop} onDragOver={onDragOver}>
+    <Stack onDrop={onDrop} onDragOver={onDragOver} className={styles.container}>
       <Stack className={styles.innerContainer}>
-        <Label htmlFor="picture">PDF</Label>
+        <Upload className={'absolute -translate-x-[50%] -translate-y-[50%] top-[50%] left-[50%] h-[40%] w-[40%] opacity-30'}/>
+        <Label htmlFor="picture" className={styles.label}>Upload a PDF Contract</Label>
         <Input id="PDF" type="file" onChange={(e) => { setFile(e.target.files?.[0])}}/>
-        <Button onClick={() => onSelection(file)}>Upload PDF</Button>
-
       </Stack>
+      <Button onClick={() => onSelection(file)} className={styles.button}>Upload PDF</Button>
     </Stack>
   );
 }

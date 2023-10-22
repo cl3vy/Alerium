@@ -1,5 +1,6 @@
 interface IFloor {
   id: number,
-  floorNumber: number;
+  floorNr: number;
+  rooms: number;
 }
 export type {IFloor}

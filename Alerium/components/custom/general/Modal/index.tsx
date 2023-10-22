@@ -42,7 +42,7 @@ function Modal({
         </DialogHeader>
         {children}
         {dialogFooter && <DialogFooter>{dialogFooter}</DialogFooter>}
-      </DialogContent>
+      </DialogContent >
     </Dialog>
   );
 }

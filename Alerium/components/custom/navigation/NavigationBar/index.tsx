@@ -1,39 +1,59 @@
 "use client";
 // React Peer Dependencies
-import React, { ReactNode } from "react";
+import React from "react";
 // Next Components
-import Link from "next/link"
+import Link from "next/link";
 // Shad CN Components
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 // Custom Components
-import {Stack} from '@constants/components';
-import { NavigationMenuItemProps } from "@radix-ui/react-navigation-menu";
+import { ThemeToggle, Typography } from "@constants/components";
+import { Inbox, Users } from "lucide-react";
 // Types And Interfaces
-type NavigationBarItemProps = {
-trigger: ReactNode
-} & NavigationMenuItemProps
-type NavigationBarProps = {
-  items: NavigationBarItemProps[]
-}
-function NavigationBar({items}:NavigationBarProps) {
+type NavigationBarProps = {};
+
+function NavigationBar() {
   return (
-  <NavigationMenu>
-    <NavigationMenuList>
-      {items.map(({trigger, }, i) => <React.Fragment key={i}>
-        <NavigationMenuTrigger>{trigger}</NavigationMenuTrigger>
-      </React.Fragment>)}
-    </NavigationMenuList>
-  </NavigationMenu>
+    <NavigationMenu
+      className={
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      }
+    >
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Link href="/residents" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Typography
+                className={navigationMenuTriggerStyle()}
+                startDecorator={<Users />}
+              >
+                Residents
+              </Typography>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/requests" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Typography
+                className={navigationMenuTriggerStyle()}
+                startDecorator={<Inbox />}
+              >
+                Requests
+              </Typography>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+      <ThemeToggle className={'ml-auto my-1'}/>
+    </NavigationMenu>
   );
 }
 
 export default NavigationBar;
-export type {NavigationBarProps}
+export type { NavigationBarProps };
