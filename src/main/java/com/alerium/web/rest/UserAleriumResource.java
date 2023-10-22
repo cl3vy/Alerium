@@ -1,11 +1,17 @@
 package com.alerium.web.rest;
 
+import com.alerium.domain.Building;
+import com.alerium.domain.Room;
 import com.alerium.domain.UserAlerium;
 import com.alerium.domain.dto.LoginDTO;
+import com.alerium.repository.BuildingRepository;
+import com.alerium.repository.FloorRepository;
+import com.alerium.repository.RoomRepository;
 import com.alerium.repository.UserAleriumRepository;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,10 +26,24 @@ public class UserAleriumResource {
 
     private final UserAleriumRepository userAleriumRepository;
 
+    private final RoomRepository roomRepository;
+
+    private final FloorRepository floorRepository;
+
+    private final BuildingRepository buildingRepository;
+
     private static final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public UserAleriumResource(UserAleriumRepository userAleriumRepository) {
+    public UserAleriumResource(
+        UserAleriumRepository userAleriumRepository,
+        RoomRepository roomRepository,
+        BuildingRepository buildingRepository,
+        FloorRepository floorRepository
+    ) {
         this.userAleriumRepository = userAleriumRepository;
+        this.roomRepository = roomRepository;
+        this.buildingRepository = buildingRepository;
+        this.floorRepository = floorRepository;
     }
 
     @GetMapping
@@ -40,6 +60,44 @@ public class UserAleriumResource {
         userAlerium.setRole("user");
 
         var savedUserAlerium = userAleriumRepository.save(userAlerium);
+
+        List<Building> buildings = buildingRepository.findAll();
+
+        for (Building b : buildings) {
+            var floors = b.getFloors();
+
+            for (int i = 1; i < floors.size() + 1; i++) {
+                for (int j = 1; j < 21; j++) {
+                    Room room = new Room();
+
+                    room.setBooked(false);
+                    room.setRoomNumber((long) (j + 100 * i));
+
+                    Random random = new Random();
+                    int ra = random.nextInt(4) + 1;
+
+                    room.setAmmountPeople((long) ra);
+
+                    if (room.getAmmountPeople() == 1) {
+                        room.setTypology("Single");
+                    } else if (room.getAmmountPeople() == 2) {
+                        room.setTypology("Double");
+                    } else if (room.getAmmountPeople() == 3) {
+                        room.setTypology("1 + 1");
+                    } else if (room.getAmmountPeople() == 4) {
+                        room.setTypology("2 + 1");
+                    }
+
+                    int squareMeters = random.nextInt(61) + 30; // Range: 30 to 90
+
+                    room.setSquareMeters((double) squareMeters);
+
+                    room.setFloor(floors.get(i - 1));
+
+                    roomRepository.save(room);
+                }
+            }
+        }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUserAlerium);
     }
