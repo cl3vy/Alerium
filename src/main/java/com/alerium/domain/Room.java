@@ -41,6 +41,10 @@ public class Room {
     @Column(name = "squareMeters")
     private Double squareMeters;
 
+    @ManyToOne
+    @JoinColumn(name = "floor_id")
+    private Floor floor;
+
     public Room() {}
 
     public Room(
@@ -53,7 +57,8 @@ public class Room {
         List<Image> images,
         String typology,
         Long ammountPeople,
-        Double squareMeters
+        Double squareMeters,
+        Floor floor
     ) {
         this.id = id;
         this.roomNumber = roomNumber;
@@ -65,6 +70,7 @@ public class Room {
         this.typology = typology;
         this.ammountPeople = ammountPeople;
         this.squareMeters = squareMeters;
+        this.floor = floor;
     }
 
     public Long getId() {
@@ -145,5 +151,13 @@ public class Room {
 
     public void setSquareMeters(Double squareMeters) {
         this.squareMeters = squareMeters;
+    }
+
+    public Floor getFloor() {
+        return floor;
+    }
+
+    public void setFloor(Floor floor) {
+        this.floor = floor;
     }
 }

@@ -15,7 +15,7 @@ public class Building {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "building_id")
     private List<Floor> floors;
 

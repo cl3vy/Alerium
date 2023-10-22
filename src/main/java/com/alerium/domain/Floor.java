@@ -15,8 +15,7 @@ public class Floor {
     @Column(name = "floor_nr")
     private Long floorNr;
 
-    @OneToMany
-    @JoinColumn(name = "floor_id")
+    @OneToMany(mappedBy = "floor", fetch = FetchType.EAGER)
     private List<Room> rooms;
 
     public Floor() {}
