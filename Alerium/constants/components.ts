@@ -31,14 +31,20 @@ import SignUpForm from "@/components/custom/form/SignUpForm";
 import LogInForm from "@/components/custom/form/LogInForm";
 import FormSelect, { FormSelectProps } from "@/components/custom/form/FormSelect";
 // table
-import DataTable from '@/components/custom/table/DataTable';
-import {columns, IUserRow} from '@/components/custom/table/ColumnDef/ColumnDef';
-import TableCell, {TableCellProps} from '@/components/custom/table/TableCell';
-import RowActions, {RowActionsProps} from '@/components/custom/table/RowActions'
+import DataTable from "@/components/custom/table/DataTable";
+import { columns, IUserRow } from "@/components/custom/table/ColumnDef/ColumnDef";
+import TableCell, { TableCellProps } from "@/components/custom/table/TableCell";
+import RowActions, { RowActionsProps } from "@/components/custom/table/RowActions";
 import UploadPDF from "@/components/custom/table/UploadPDF";
-import ViewUser, {ViewUserProps} from "@/components/custom/table/ViewUser";
+import ViewUser, { ViewUserProps } from "@/components/custom/table/ViewUser";
 // Building
-import SvgView, {SvgViewProps} from "@/components/custom/buildings/SvgView";
+import SvgView, { SvgViewProps } from "@/components/custom/buildings/SvgView";
+// Floor
+import Floor, { FloorProps } from "@/components/custom/room/Floor";
+import FloorView, { FloorViewProps } from "@/components/custom/room/FloorView";
+import FloorOverview from "@/components/custom/room/FloorOverview";
+import RoomModal from "@/components/custom/room/RoomModal";
+
 export {
   Provider,
   ThemeProvider,
@@ -68,7 +74,11 @@ export {
   RowActions,
   UploadPDF,
   SvgView,
-  ViewUser
+  ViewUser,
+  Floor,
+  FloorView,
+  FloorOverview,
+  RoomModal
 };
 export type {
   StackProps,
@@ -95,5 +105,7 @@ export type {
   TableCellProps,
   RowActionsProps,
   SvgViewProps,
-  ViewUserProps
+  ViewUserProps,
+  FloorProps,
+  FloorViewProps,
 };

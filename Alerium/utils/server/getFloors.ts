@@ -11,6 +11,7 @@ export const getFloors = cache(async (buildingId: string) => {
 
     const buildingData = await axios.get<IFloor[]>(endpoints.url + `/api/building/floors/${buildingId}`);
 
+
     const initialBuildingData = buildingData.data;
 
     console.log(initialBuildingData);

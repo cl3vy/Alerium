@@ -1,8 +1,8 @@
 // Utils
 import { getFloors } from "@constants/utils";
 // Styles
-import "./styles.css";
-import { Stack } from "@constants/components";
+import "../../components/custom/room/FloorView/styles.css";
+import { Floor, FloorView, Stack } from "@constants/components";
 import {
   Card,
   CardContent,
@@ -13,41 +13,17 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Logo from "@/public/assets/images/logo-with-text.png";
-
+import { IRoom } from "@/interfaces/IRoom";
 export default async function Page({
   params,
 }: {
   params: { buildingId: string };
 }) {
   const { props: floors } = await getFloors(params.buildingId);
-  const colors = [
-    "bg-blue-50",
-    "bg-blue-100",
-    "bg-blue-200",
-    "bg-blue-300",
-    "bg-blue-400",
-    "bg-blue-500",
-    "bg-blue-600",
-    "bg-blue-700",
-    "bg-blue-800",
-    "bg-blue-900",
-  ];
+
   return (
-    <Stack className={"p-[10px] relative"}>
-      <div className={"map"}>
-        {floors.map(({ floorNr, id }, i) => (
-          <div
-            className={`floor`}
-            style={{ zIndex: floors.length - i * 10 }}
-            key={id}
-          >
-            <span className={`label ${colors[i]} after:${colors[i]}`}>
-              {floorNr}
-            </span>
-            <div className={`plan ${colors[i]}`}></div>
-          </div>
-        ))}
-      </div>
+    <Stack className={"p-[10px] relative"} direction={'row'}>
+      <FloorView floors={floors} />
       <Stack className={"w-[33%] absolute top-[10px] gap-4"}>
         <Card>
           <CardHeader>
