@@ -27,7 +27,7 @@ export default async function Page({
       <Stack className={"w-[33%] absolute top-[10px] gap-4"}>
         <Card>
           <CardHeader>
-            <CardTitle>Building {params.buildingId} </CardTitle>
+            <CardTitle className={'text-[4rem]'}>Building {params.buildingId} </CardTitle>
             <CardDescription>
               Decent, comfortable, safe accommodation with high standard
               services and facilities and a lively and attractive environment.

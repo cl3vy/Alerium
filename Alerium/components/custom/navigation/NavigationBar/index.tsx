@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 // Custom Components
 import { ThemeToggle, Typography } from "@constants/components";
-import { Inbox, Users } from "lucide-react";
+import { Home, Inbox, User, User2, Users } from "lucide-react";
 // Types And Interfaces
 type NavigationBarProps = {};
 
@@ -26,6 +26,16 @@ function NavigationBar() {
     >
       <NavigationMenuList>
         <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Typography
+                className={navigationMenuTriggerStyle()}
+                startDecorator={<Home />}
+              >
+                Home
+              </Typography>
+            </NavigationMenuLink>
+          </Link>
           <Link href="/residents" legacyBehavior passHref>
             <NavigationMenuLink>
               <Typography
@@ -45,6 +55,26 @@ function NavigationBar() {
                 startDecorator={<Inbox />}
               >
                 Requests
+              </Typography>
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/log-in" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Typography
+                className={navigationMenuTriggerStyle()}
+                startDecorator={<User2 />}
+              >
+                Log In
+              </Typography>
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/sign-up" legacyBehavior passHref>
+            <NavigationMenuLink>
+              <Typography
+                className={navigationMenuTriggerStyle()}
+                startDecorator={<User/>}
+              >
+                Sign In
               </Typography>
             </NavigationMenuLink>
           </Link>

@@ -3,7 +3,7 @@ import { IRoom } from "@/interfaces/IRoom";
 import { Stack, Typography } from "@constants/components";
 import { Separator } from "@/components/ui/separator";
 import styles from "./style";
-import { LandPlot, Network, Users2 } from "lucide-react";
+import { ArrowUp10, BookCheck, LandPlot, Network, Users2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 function RoomModal({roomNumber, squareMeters, booked, endDate, startDate, id, typology, amountPeople}: IRoom) {
@@ -13,18 +13,18 @@ function RoomModal({roomNumber, squareMeters, booked, endDate, startDate, id, ty
         <Typography className={styles.title}>General Information</Typography>
         <Separator />
         <Stack className={styles.field}>
-          <Typography className={styles.label}>Room Number: </Typography>
+          <Typography className={styles.label}  startDecorator={<ArrowUp10 />}>Room Number: </Typography>
           <Typography className={styles.value}>{roomNumber}</Typography>
         </Stack>
         <Stack className={styles.field}>
           <Typography className={styles.label} startDecorator={<LandPlot />}>
-            Square Meters:{" "}
+            Square Meters:
           </Typography>
           <Typography className={styles.value}>{squareMeters}</Typography>
         </Stack>
         <Stack className={styles.field}>
-          <Typography className={styles.label}>Status: </Typography>
-          <Typography className={styles.value}>{booked}</Typography>
+          <Typography className={styles.label} startDecorator={<BookCheck />}>Status: </Typography>
+          <Typography className={styles.value}>{String(booked)}</Typography>
         </Stack>
         {endDate && (
           <Stack className={styles.field}>
@@ -44,15 +44,15 @@ function RoomModal({roomNumber, squareMeters, booked, endDate, startDate, id, ty
         }
         <Stack className={styles.field}>
           <Typography className={styles.label} startDecorator={<Network />}>
-            Typology:{" "}
+            Typology:
           </Typography>
           <Typography className={styles.value}>{typology}</Typography>
         </Stack>
         <Stack className={styles.field}>
           <Typography className={styles.label} startDecorator={<Users2 />}>
-            Capacity:{" "}
+            Capacity:
           </Typography>
-          <Typography className={styles.value}>{amountPeople}</Typography>
+          <Typography className={styles.value}>2</Typography>
         </Stack>
       </Stack>
       {!booked && <Button>Book</Button>}

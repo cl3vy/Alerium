@@ -15,12 +15,12 @@ function FloorOverview({ rooms }: FlorOverviewProps) {
     <Stack direction={"row"} className={"flex-wrap w-[50%] gap-0 absolute right-[10px] top-[10px]"} spacing={1}>
       {rooms.map((data, i) => (
         <Modal
-          dialogTitle={'User Data'}
+          dialogTitle={'Room Overview'}
           dialogTrigger={
-            <Stack className={styles.room(data.booked)}>{data.roomNumber}</Stack>
+            <Stack className={styles.room(data.booked, i)}>{data.roomNumber}</Stack>
           }
         >
-         <RoomModal {...data}/>
+         <RoomModal {...data} booked={i % 4 === 0}/>
         </Modal>
       ))}
     </Stack>

@@ -28,7 +28,7 @@ export default async function Residents() {
               <CardDescription>The number of all resident occupying rooms:</CardDescription>
             </CardHeader>
             <CardContent>
-              <Typography className={'text-[6rem] align-left justify-end'}>309</Typography>
+              <Typography className={'text-[6rem] align-left justify-end'}>3</Typography>
             </CardContent>
             <CardFooter>
               Residents with an active contract!
@@ -40,7 +40,7 @@ export default async function Residents() {
               <CardDescription>The number of occupied rooms by 1 or more residents:</CardDescription>
             </CardHeader>
             <CardContent>
-              <Typography className={'text-[6rem] align-left justify-end'}>102</Typography>
+              <Typography className={'text-[6rem] align-left justify-end'}>2</Typography>
             </CardContent>
             <CardFooter>
               Rooms rented out.

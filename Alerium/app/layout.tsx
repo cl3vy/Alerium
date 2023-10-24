@@ -29,9 +29,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Provider>
-            <Stack>
+            <Stack className={'h-full'}>
               <NavigationBar />
-              <Stack className={'height-[calc(100%-35px)]'}>{children}</Stack>
+              <Stack className={'h-[calc(100%-35px)]'}>{children}</Stack>
             </Stack>
             <Toaster />
           </Provider>
